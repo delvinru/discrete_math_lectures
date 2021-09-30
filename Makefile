@@ -2,4 +2,4 @@ all:
 	$(MAKE) -C src/
 
 clean:
-	rm -rf out/main.{aux,log}
+	rm -rf out/main.{aux,log,toc}
