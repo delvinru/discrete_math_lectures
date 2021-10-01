@@ -77,3 +77,5 @@ sudo pacman -S texlive-most texlive-lang
 ```bash
 make
 ```
+
+Я понял как работать с гитом
