@@ -78,4 +78,4 @@ sudo pacman -S texlive-most texlive-lang
 make
 ```
 
-Я понял как работать с гитом
+Я разобрался
