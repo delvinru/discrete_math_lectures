@@ -77,5 +77,3 @@ sudo pacman -S texlive-most texlive-lang
 ```bash
 make
 ```
-
-Я разобрался
