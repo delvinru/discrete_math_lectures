@@ -18,11 +18,11 @@
 
 \opr Конъюктивной нормальной формой (КНФ) называется $\forall$ формула представляющая собой конъюнкцию конечного числа элементарных дизъюнкций.
 
-\thr $\forall$ булевая функция может быть представлена в виде $f(x_1, \dotsc, x_n) = \Large\&\normalsize_{(b_1, \dotsc, b_k) = \Omega^k} x_{i_1}^{\bar{b}_{i_1}},\dotsc,x_{i_k}^{\bar{b}_{i_k}}f_{i_1, \dotsc, i_n}^{\bar{b}_{i_1},\dotsc,\bar{b}_{i_n}}(x_1,\dotsc,x_n)$ %оставь надежду, всяк сюда смотрящий
+\thr $\forall$ булевая функция может быть представлена в виде $f(x_1, \dotsc, x_n) = \mathlarger{\mathlarger{\text{\&}}} _{(b_1, \dotsc, b_k) = \Omega^k} x_{i_1}^{\bar{b}_{i_1}},\dotsc,x_{i_k}^{\bar{b}_{i_k}}f_{i_1, \dotsc, i_n}^{\bar{b}_{i_1},\dotsc,\bar{b}_{i_n}}(x_1,\dotsc,x_n)$ %оставь надежду, всяк сюда смотрящий
 
 \note Аналогичным образом определяется элементарная дизъюнкция(ДНФ).
 
-\thr $\forall$ булевой функции $k\leq n$ представима формулой $f(x_1,\dotsc,x_n) = \Large\vee\normalsize_{(a_1, \dotsc, a_k)} x_{i_1}^{a_{i_1}},\dotsc,x_{i_k}^{a_{i_k}}f_{i_1, \dotsc, i_n}^{a_{i_1},\dotsc,a_{i_n}}(x_1,\dotsc,x_n)$ %как и сюда
+\thr $\forall$ булевой функции $k\leq n$ представима формулой $f(x_1,\dotsc,x_n) = \mathlarger{\mathlarger{\vee}} _{(a_1, \dotsc, a_k)} x_{i_1}^{a_{i_1}},\dotsc,x_{i_k}^{a_{i_k}}f_{i_1, \dotsc, i_n}^{a_{i_1},\dotsc,a_{i_n}}(x_1,\dotsc,x_n)$ %как и сюда
 
 \conseq $f(x_1,\dotsc,x_n) \equiv \overline{x_1}f(0,x_2,\dotsc,x_n) \vee x_1f(1, x_2, \dotsc, x_n)$
 
@@ -54,7 +54,7 @@
 	\item $N_{f \cdot \varphi} = N_f \cap N_{\varphi}$
 	\item $N_{f \cup \varphi} = N_f \cup N_{\varphi}$
 	\item $f \cup \varphi \equiv f \Leftrightarrow N_{\varphi}\subseteq N_f$
-	\item $f \equiv \Large\vee_{i=1}^m\varphi_i \Leftrightarrow N_f = \Large\cup_{i=1}^mN_{\varphi_i}$
+	\item $f \equiv \mathlarger{\mathlarger{\vee}} _{i=1}^m\varphi_i \Leftrightarrow N_f = \mathlarger{\mathlarger{\cup}} _{i=1}^mN_{\varphi_i}$
 \end{enumerate}
 
 \opr Длиной ДНФ называется сумма рангов входящих в неё элементарных конъюнкций. ДНФ с минимальной длиной называется минимальной ДНФ (МДНФ).
@@ -78,7 +78,7 @@ $f(x_1, x_2, x_3) \equiv x_1x_2 \vee x_1\overline{x_2}\vee \overline{x_2} \overl
 $\overline{x_2} \overline{x_3}$ - простая.\\
 $x_1x_2$ - нет, т.к. $x_1$ поглощается f.
 
-\lemma Пусть $\varphi_1$ и $\varphi_2$ имплеканты f, $\varphi_1$ поглощает $\varphi_2 \Leftrightarrow \varphi_1$ - часть $\varphi_2$
+\lem Пусть $\varphi_1$ и $\varphi_2$ имплеканты f, $\varphi_1$ поглощает $\varphi_2 \Leftrightarrow \varphi_1$ - часть $\varphi_2$
 
 \thr $\forall$ имплеканта функции f, содержащаяся в какой-либо МДНФ функции f является простой.
 
@@ -120,12 +120,12 @@ $x_1x_2$ - нет, т.к. $x_1$ поглощается f.
 Тогда по предположению индукции $\varphi$ содержится в ДНФ, полученной после \underline{Этапа 1}, применнёного к ДНФ функции $f_1$, но $\varphi \in$ аналогичной ДНФ функции f, т.к. $\forall$ непростая имплеканта поглащается некоторой простой, то после \underline{Этапа 2} в ДНФ окажутся только простые имплеканты.
 \end{itemize}
 
-\lemma Путь ДНФ $A = \Large\cup_{i=1}^k\varphi_i$ поглащает элементарную конъюнкцию $\varphi$ и $\varphi \varphi_k \equiv 0$. Тогда $\varphi$ поглащается ДНФ $A^1=\Large\cup_{i=1}^k\varphi_i$
+\lem Путь ДНФ $A = \mathlarger{\mathlarger{\cup}} _{i=1}^k\varphi_i$ поглащает элементарную конъюнкцию $\varphi$ и $\varphi \varphi_k \equiv 0$. Тогда $\varphi$ поглащается ДНФ $A^1=\mathlarger{\mathlarger{\cup}} _{i=1}^k\varphi_i$
 
 \opr Функции $f_1$ и $f_2$ называются ортогональными, если $f_1f_2 \equiv 0$
 
 \thr(Критерий поглощения)\par
-Пусть  $A=\Large\cup_{i=1}^k\Large u_i$ - ДНФ некоторой функции, $\varphi_0$ - элементарная конъюнкция не ортогональная ни одной из конъюнкций $\varphi_1, \dotsc,\varphi_k$. Обозначим $\varphi_{0_i}$ - конъюнкцию членов входящих в $\varphi_0$  и в $\varphi_i$, а $\varphi_{1_i}$ - конъюнкция членов $\varphi_i$, невходящих в $\varphi_0$ (если $\varphi_i = \varphi_{0_i}, \varphi_{1_i} = 1$) ДНФ поглощает $\varphi \Leftrightarrow \Large\vee_{i=1}^k\varphi_{1_i} \equiv 1$
+Пусть  $A=\mathlarger{\mathlarger{\cup}} _{i=1}^k u_i$ - ДНФ некоторой функции, $\varphi_0$ - элементарная конъюнкция не ортогональная ни одной из конъюнкций $\varphi_1, \dotsc,\varphi_k$. Обозначим $\varphi_{0_i}$ - конъюнкцию членов входящих в $\varphi_0$  и в $\varphi_i$, а $\varphi_{1_i}$ - конъюнкция членов $\varphi_i$, невходящих в $\varphi_0$ (если $\varphi_i = \varphi_{0_i}, \varphi_{1_i} = 1$) ДНФ поглощает $\varphi \Leftrightarrow \mathlarger{\mathlarger{\vee}} _{i=1}^k\varphi_{1_i} \equiv 1$
 
 \utv Если f монотонна, то сокращённая ДНФ = МДНФ.
 
