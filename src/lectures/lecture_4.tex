@@ -1,0 +1,227 @@
+\section {Представление дискретных функций в базисах функциональных пространств. Алгоритм БПФ. }
+
+\opr Пусть K - произвольное поле, 0 и 1 - нуль и единица поля K  соответствует псевдобулевой функции от n переменных называется произвольное отображение $f:\{0,1\}^{n} \longrightarrow K$.
+Обобщение $ GF(p)^n \longrightarrow K$.
+Множества таких функций будем называть $K_p(n)$. На $K_p(n)$ естественным образом задаются операции + и $\cdot$ на элементах поля.
+
+\utv $K_p(n)$ - векторное пространство над $K$ размерности $p^n$
+
+\thr Множеству всех различных гомоморфизмов $\varphi: (GF(p)^n,+) \longrightarrow (\mathbb{C},*)$ состоит из $p^n$ различных гомоморфизмов $\X_\alpha$; $\alpha = (\alpha_1,\dots, alpha_n) \in GF(p)^n$, каждый из которых однозначно определяется своим действием на вектора стандартного базиса $e_j, j \in \overline{1, n}$
+следующим образом $\X_\alpha(e_j) = \exp(\frac{2\pi i}{p}\cdot \alpha_i).$
+
+\utv Для любых $\alpha,\beta \in GF(p)^n$ верно $\frac{1}{p^n}\sum_{\gamma \in GF(p)^n}^n \X_\alpha (\gamma) \overline {\X_\beta (\gamma )} = \delta_{\alpha,\beta}$, т.е.
+\begin{align*}
+    \delta_{\alpha, \beta} = 
+    \begin{cases}
+        1, \alpha = \beta \\
+        0, \alpha \neq \beta
+    \end{cases}
+\end{align*}
+
+\thr $\{ \X_\alpha \mid \alpha \in (GF(p))^n \}$ - базис $\C_p(n)$
+
+\opr Разложение произвольной функции $f \in \C_p(n)$ по базису характера $\{ \X_\alpha \mid \alpha \in (GF(p))^n \}: f(\vec{x}) =  \sum_{\alpha \in GF(p)^n} C_\alpha^f \X_\alpha(\vec{x})$ называется разложением $f$ в ряд Фурье, соответствующий набору $\alpha$. Комплексное число $C_\alpha^f$ - коэффициент Фурье функциий $f$
+соотвествующий набору $\alpha$.
+
+\opr Преобразование из $\C_p(n)$ в $\C^{p^n}$, ставящее в соответствие каждой функции ее коэффициенты Фурье(<<Спектр Фурье>>), будем называть преобразование Фурье.
+
+\utv
+\begin{enumerate}
+    \item Пусть $\gamma \in GF(p)^n$, тогда $C_\gamma^f = \frac{1}{p^n}\sum_{\beta \in GF(p)^n} f(\beta) \overline{\X_\alpha(\beta)}$.
+    \item Пусть $f$ - булева функция, тогда $C_\gamma^f = \frac{1}{2^n}||(f(\overline{x})||$.
+\end{enumerate}
+
+В некоторых случаях вместо функции $f$ удобнее свойства функции $F(\vec{x}) = (-1)^{f(\vec{x})}.$ Коэффиценты Фурье такой функции называется коэффициентом Уолша-Адамара второго рода функции $f(x)$. Обозначается $C_\alpha^F = W_\alpha^f$.\\
+
+\prop
+\begin{enumerate}
+    \item $W_\alpha^f = 1 - \frac{1}{2^{n-1}} ||f(\vec{x}) \oplus  <\alpha,\vec{x}>||$, где $<\alpha, \vec{x}> = \alpha_1 x_1 \oplus \dots \oplus \alpha_n x_n$.
+
+    \item \begin{align*}
+            W_\alpha^f =
+                \begin{cases}
+                    -2 C_\alpha^f  : \alpha \neq \vec{0}\\
+                    1-2 C_\alpha^f : \alpha = \vec{0}
+                \end{cases}
+            \end{align*}
+    
+    \item $\sum_{\alpha \in \Omega_2^n} W_\alpha^f = (-1)^{f(\overline{0})} $
+
+    \item $\sum_{\alpha \in \Omega_2^n} (W_\alpha^f)^2 = 1$
+
+    \item $\frac{1}{2^{\frac{n}{2}}} \leq \max_{\alpha \in \Omega_2^n} |W_\alpha^f| \leq 1$
+\end{enumerate}
+
+Зафиксируем некоторую обратимую $2^n \times 2^n$ матрицу $A$ над полем $K$. Пусть $f^{\downarrow}$ - вектор столбцов значений $f$ из $K_2(n)$.
+$\widetilde{f^\downarrow} = A^{-1} f^\downarrow$, тогда задано биективное отображение из $K_2(n)$ в $K^{2^n}$.
+Вектор $\widetilde{f^\downarrow}$ - представление функции $f$.
+Если столбцы матрицы $A$ занумеровать наборами из $\Omega_2^n$, то $f^\downarrow = \sum_{\alpha \in \Omega_2^n} g_\alpha^\downarrow \widetilde{f}(\alpha)$.
+Каждый столбец $g_\alpha^\downarrow$ есть задание некоторой функции из $K_2(n)$, $A$ - невырожденная $\Rightarrow \{ g_\alpha \}_{\alpha \in \Omega_2^n}$ - базис $K_2(n)$.
+
+\opri Пусть $A$ и $B$ - матрицы над размеров $m \times n$ и $n \times n$ над полем $K$ соответственно. Тензорным произведением матриц $A$ и $B$ называется матрица $С = A \otimes B$ следующего вида:
+\begin{align*}
+    C =
+    \begin{pmatrix}
+        \alpha_{11}\beta & \alpha_{12}\beta & \dots & \alpha_{1m}\beta \\
+        \vdots & \vdots & \ddots  & \vdots \\
+        \alpha_{m1}\beta & \alpha_{m2}\beta & \dots & \alpha_{mn}\beta
+    \end{pmatrix}
+    - \text{размерность}\  mn \times mn.
+\end{align*}
+
+\utv
+\begin{enumerate}
+    \item $A \otimes (B \otimes C) = (A \otimes B) \otimes C$
+    \item $(A + B) \otimes C = A \otimes C + B \otimes C $ ($m = n$) \\
+          $A \otimes (B + C) = A \otimes B + A \otimes C $
+    \item $A,C  \in K_{m;m}, B,D \in K_{n;n} \Rightarrow (A \otimes B)(C \otimes D) = AC \otimes BD$
+    \item $A \oplus B$ обратимо $\Leftrightarrow$ $A$ и $B$ обратимы, причем $(A \otimes B)^{-1} = A^{-1} \otimes B^{-1}$
+\end{enumerate}
+
+\lem Пусть $A$ - матрица размера $2^n \times 2^n$ над $K$ и $A = B \otimes A'$, где $B = \begin{pmatrix}
+    a & b\\
+    c & d
+\end{pmatrix}$
+, $a,b,c,d \in K$, а $A$ - матрица размером $2^{n-1} \times 2^{n-1}$ причем обе матрицы $B$ и  $A'$ невырожденные.
+Пусть столбцы матриц $A$ и $A'$ задают базисы функциональных пространств $K_2(n), K_2(n-1)$, функции из которых обозначаются $g_\alpha$ и ${g'}_\alpha$ соответственно.
+Тогда $\forall \alpha \in \Omega_2^{n-1}$ верно:
+
+$g_\alpha(0, \alpha') = (a \overline{x_1} + c x_1)g_{\alpha'}(x_2; \dots ;x_n)$\\
+$g_\alpha(1, \alpha') = (b \overline{x_1} + d x_1)g_{\alpha'}(x_2; \dots ;x_n)$.
+
+\thr Пусть A - тензорное произведение матриц $B_j \in K_{2\times2}^*$ вида $\begin{pmatrix}
+    a_i & b_i\\
+    c_i & d_i
+\end{pmatrix}$,
+т.е. $A = \otimes \prod_{i = 1}^n B_i$, тогда базисная функция $g_\omega$, соотвествующая столбцу $A$ и занумерованная набором $\omega = (\omega_1, \dots, \omega_n)$ имеет вид
+$g_\omega(x_1; \dots; x_n) = \prod_{i=1}^n \omega_i(a_i\overline{x_i} + c_ix_i) + \omega_i(b_i\overline{x_i} + d_ix_i)$.
+
+\example
+\begin{align*}
+    B = 
+    \begin{cases}
+        1 & 0\\
+        0 & 1
+    \end{cases}
+    - \text{тождественное преобразование}.
+\end{align*}
+
+\begin{align*}
+    B = 
+    \begin{cases}
+        1 & 0\\
+        1 & 1
+    \end{cases}
+    - \text{многочлен Жегалкина}.
+\end{align*}
+
+\begin{align*}
+    B = 
+    \begin{cases}
+        1 & 1\\
+        1 & -1
+    \end{cases}
+    - \text{коэффициент Фурье}.
+\end{align*}
+
+\thr Пусть $B$ - невырожденная матрица размера $2 \times 2$  над $K$, $A = B^{[n]}$ - тензорная степень. Тогда существует алгоритм вычисления $\widetilde{f}^\downarrow$ по вектору $f^\downarrow$, имеющий сложность $O(n \cdot 2^n)$ операций поля $K$)\\
+
+\proof Пусть $B^{-1} = $ $\begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix}$.
+Из свойств тензорного произведения матриц вытекает, что $A^{-1} = (B^{-1})^{[n]}= D_n \cdot D_{n-1} \cdot \ldots \cdot D_1$, где $D_i$ - матрица вида:
+
+\begin{align*}
+    D_i = \left( E_2^{[n-i]} \otimes
+    \begin{pmatrix}
+        a & b\\
+        c & d
+    \end{pmatrix}
+    \otimes E_2^{[i-1]} \right), \text{где}\  E_2 = 
+    \begin{pmatrix}
+        1 & 0 \\
+        0 & 1
+    \end{pmatrix}.
+\end{align*}
+
+Обозначим $f_0^\downarrow = f^\downarrow$ и $\forall i \in \overline{1,n} \mid f_i^\downarrow = D_i \cdot f_{i-1}^\downarrow$, тогда $\widetilde{f^\downarrow} = f_n^\downarrow$.
+
+Покажем, что каждое из умножений $D_i$ на $f_{i-1}^\downarrow$ может быть выполнено за $O(2^n)$ операций поля $K$. Тогда общее количество операций, 
+необходимое для вычисления $\widetilde{f^\downarrow}$ по $f^\downarrow$ будет составлять $0(n2^n)$ операций.
+
+\begin{align*}
+    D = \left( E_{2^{n-i}} \otimes
+    \begin{pmatrix}
+        aE_{2^{i-i}} & bE_{2^{i-i}}\\
+        cE_{2^{i-i}} & dE_{2^{i-i}}
+    \end{pmatrix}
+    \right)
+    =
+    \begin{pmatrix}
+        \hatv{D}_i &  & 0 \\
+        & \ddots & \\
+        0 & & \hatv{D}_i
+    \end{pmatrix}
+\end{align*}
+
+$\hatv{D}_i$ - матрица размера $2^i \times 2^i$ вида
+\begin{align*}
+    \begin{pmatrix}
+        aE_{2^{i-1}} & bE_{2^{i-1}}\\
+        cE_{2^{i-1}} & dE_{2^{i-1}}
+    \end{pmatrix}.
+\end{align*}
+
+Пусть теперь $X^\downarrow$ произвольный вектор длины $2^n$ над полем $K$. Опишем алгоритм умножения $D_i$ на $X^\downarrow$.
+
+\begin{enumerate}
+    \item Разобьем $X^\downarrow$ на $2^{n-1}$ частей длины $2^i$, тогда
+        \begin{align*}
+            X^\downarrow =
+            \begin{pmatrix}
+                X_1^\downarrow \\
+                \vdots \\
+                X_{2^{n-i}}^\downarrow
+            \end{pmatrix}
+            , \text{тогда}\  
+            D_iX^\downarrow =
+            \begin{pmatrix}
+                \hatv{D}_iX_1^\downarrow \\
+                \vdots \\ 
+                \hatv{D}_iX_{2^{n-i}}^\downarrow
+            \end{pmatrix}.
+    \end{align*}
+
+    \item Каждый из векторов $X_j^\downarrow$ разбиваем на 2 подвектора равной длины.
+        \begin{align*}
+            X_j^\downarrow &=
+            \begin{pmatrix}
+                X_{j_0}^\downarrow \\
+                X_{j_1}^\downarrow
+            \end{pmatrix}
+            , \text{тогда}\  
+            D_iX_j^\downarrow =
+            \begin{pmatrix}
+                aE_{2^{i-1}} & bE_{2^{i-1}}\\
+                cE_{2^{i-1}} & dE_{2^{i-1}}
+            \end{pmatrix}
+            \begin{pmatrix}
+                X_{j_0}^\downarrow\\
+                X_{j_1}^\downarrow
+            \end{pmatrix}
+            = \\
+            &=
+            \begin{pmatrix}
+                aE_{2^{i-1}}X_{j_0}^\downarrow + bE_{2^{i-1}} X_{j_0}^\downarrow \\
+                cE_{2^{i-1}}X_{j_1}^\downarrow + dE_{2^{i-1}} X_{j_1}^\downarrow
+            \end{pmatrix}
+            =
+            \begin{pmatrix}
+                aX_{j_0}^\downarrow + bX_{j_0}^\downarrow\\
+                cX_{j_1}^\downarrow + dX_{j_1}^\downarrow
+            \end{pmatrix}.
+        \end{align*}
+\end{enumerate}
+
+Таким образом для вычисления $\widetilde{f^\downarrow}$ необходимо $O(n \cdot 2^n)$ операций.

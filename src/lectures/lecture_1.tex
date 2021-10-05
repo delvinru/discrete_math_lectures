@@ -4,9 +4,9 @@
 
 Область определения дискретной функции часто представляется в виде декартового произведения множеств относительно небольшой мощности.
 
-Если \map{f}{A}{B} - дискретная функция и $A = A_1 \times \dots \times A_n$, то $f$ обозначают следующим образом $f(x_1;\dots;x_n)$ и называют
+Если \map{f}{A}{B} - дискретная функция и $A = A_1 \times \ldots \times A_n$, то $f$ обозначают следующим образом $f(x_1;\dots;x_n)$ и называют
 дискретной функцией от $n$ переменных $x_1,\dots,x_n$. При этом $x_i$ принимает всевозможные значения из $A_i$.
-Если $A_1 = \dots = A_n = B$ и $B = \{0, 1\}$, то $f$ называется булевой функцией.
+Если $A_1 = \ldots = A_n = B$ и $B = \{0, 1\}$, то $f$ называется булевой функцией.
 
 \opr Обозначим далее $\Omega = \{0, 1\}$, тогда булевой функцией от $n$ переменных называется любое отображение \map{f}{\Omega^n}{\Omega}.
 
@@ -20,7 +20,7 @@
 $f$ называют значением функции $f$ на наборе $\vec{\alpha}$. Обозначение: $f(\vec{\alpha})$.
 
 \opr Если рассматривать 0 и 1 как числа $\in \N_0$, то для набора $\vec{\alpha} = (a_1; \dots; a_n)$ обозначим
-$||\vec{\alpha}|| = a_1 + \dots + a_n$ - вес вектора $\vec{\alpha}$.
+$||\vec{\alpha}|| = a_1 + \ldots + a_n$ - вес вектора $\vec{\alpha}$.
 
 $\widetilde{a} = \sum\limits_{i=1}^{n} a_i 2^{n-i}$ - лексикографический порядок.
 
@@ -42,3 +42,138 @@ $$
     1 & 1 & 1 \\
 \end{matrix}
 $$
+
+\utv $|F_2(n)|= 2^{2^n}$.
+
+\opr Весом булевой функции $f$ называют величину $||f|| = |\{\vec{\alpha} \in \Omega^n \mid f(\vec{\alpha}) = 1\}|$.
+
+\opr Функция от $n-1$ переменной, определяемая равенством $\varphi(a_{i_n}; \dots; a_{i_n}) = f'(a_1; \dots; a_{i-1}; b; a_{i+1}; \dots; a_n)$, называется
+функцией полученной из $f'$ фиксацией $i$-ой переменной значением $b$.
+
+Обозначением $\varphi = f_i^b(x_1; \dots; x_n)$, аналогично фиксация $k$ переменных значениями $b_1,\dots, b_k : \varphi = f_{i_1; \dots; i_n}^{b_1; \dots; b_k}(x_1; \dots; x_n)$.
+
+Общее название таких функци $\varphi$ - подфункции $f$. 
+
+Если $f(a_1; \dots; a_{i-1};0;a_{i+1}; \dots; a_n) = f(a_1; \dots; a_{i-1};1;a_{i+1}; \dots; a_n)$, то
+переменная $x_i$ называется несущественной переменной функции $f$, в противном случае - существенной.
+
+\opr Пусть $x_i$ -несущественная(\emph{фиктивная}) переменная функции $f$, $g$ получена из $f$ фиксацией $x_i$ любой константой, тогда говорят, что $g$
+получена удалением из $f$ несущественной переменной $x_i$, а $f$ получена из $g$ добавлением фиктивной переменной $x_i$.
+
+Пусть задано множество функций $\K = \{f_i : i \in I\}$ и множество символов переменных $X = \{x_1; \dots; x_n\}$.
+
+\opr \begin{enumerate}
+    \item Любой символ переменной есть формула над классом $\K$.
+    \item Если $f_j$ - символ $m$ - местной функции из $\K$, а $A_1, \dots, A_m$ - формулы над $\K$, то $f_j(A_1; \dots; A_m)$ - формула над $\K$.
+    \item Других формул нет.
+\end{enumerate}
+
+Множество формул над $\K$ обозначается $\Phi(\K)$. При $m=0$ формула есть символ над $\K$, т.е. константа.
+
+\opr Число символов функций из $\K$, встречающихся в формуле $A$ назовем рангом формулы $A$. Обозначение: $r(A)$.
+
+\opr \begin{enumerate}
+    \item Подформула формулы $x_i$ - только она сама.
+    \item Подформулы $f_j(A_1; \dots; A_n)$ - на сама и все подформулы формулы $A_1; \dots; A_n$.
+\end{enumerate}
+
+\opr Пусть $A$ - произвольная формула, в ее записи присутствует только переменные $x_{i_1}, \ldots, x_{i_k}$. Набор $x_{j_1}, \ldots, x_{j_m}$ называется
+допустимым, если $\{x_{i_1}, \ldots, x_{i_k}\} \subseteq \{x_{j_1}, \ldots, x_{j_m}\}$.
+
+Каждой формуле при фиксированном допустимом наборе $(x_1; \dots; x_n)$ сопоставляется по следующему правилу:
+\begin{enumerate}
+    \item Если $A$ есть $x_i$, то ей сопоставляется функция $f$, значения которой определяются равенством $f(a_1;\dots;a_n) = a_i, (a_1;\dots;a_n) \in \Omega^n$.
+    \item Если $A$ есть $f_j(A_1;\dots; A_m)$ и формулам $A_1, \dots, A_m$ сопоставлены функции $\varphi_1(x_1;\dots;x_n); \dots;\varphi_m(x_1;\dots;x_n)$, то формуле $A$ сопоставляется
+функция $f$, значения которой определяются равенством $f(a_1;\dots;a_n) = f_j(b_1;\dots;b_n)$, где $b_\zeta = \varphi_\zeta(a_1;\dots;a_n), \zeta \in \overline{1, n}$.
+\end{enumerate}
+
+\opr Формулы $A$ и $B$ равносильны, если они представляют одну и ту же функцию на любом допустимом наборе. Обозначение: $A\equiv B$.
+
+\opr Пусть $A$ - произвольная формула над классом $\K = ( \text{\&}, \vee, \neg )$. Двойственной к $A$ называется формула полученная из $A$ заменой $\text{\&} \leftrightarrow \vee$. Обозначение: $A^*$.
+
+\thr $A^*(x_1; \dots; x_n) = \overline{A(\overline{x_1}; \dots; \overline{x_n})}$.
+
+\conseq $A \equiv B \Leftrightarrow A^* \equiv B^*$.
+
+\opr Замыканием системы $\K$ булевых функций называют множество всех булевых функций представимых формулами над $\K$. Обозначение: $[\K]$.
+
+\utv \begin{enumerate}
+    \item $\K \subseteq [\K]$
+    \item $\K_1 \subseteq \K_2 \Rightarrow [\K_1] \subseteq [\K_2]$
+    \item $[[\K]] = [\K]$
+\end{enumerate}
+
+\opr Система $\K$ называется полной, если (замыкание) $[\K] = F_2$.
+
+\example
+\begin{align*}
+    \begin{rcases}
+        \K_0 &= \{x_1 \cdot x_2; x_1 \vee x_2; \overline{x_1}\} \\
+        \K_5 &= \{x_1 \cdot x_2; x_1 \oplus x_2; 1\}
+    \end{rcases}
+    \text{Полные}
+\end{align*}
+
+\opr Класс булевых функций называется замкнутым, если $\K = [\K]$.
+
+Говорят, что набор $\vec{\beta}$ мажорирует набор $\vec{\alpha}$, если $\forall i \in \overline{1, n}: a_i \leq b_i$. Обозначение: $\vec{\alpha} \preccurlyeq \vec{\beta}$.
+
+\examplei
+\begin{align*}
+    T_0 &= \{f(x_1; \dots; x_n) \mid f(0; \dots; 0) = 0\}\\
+    T_1 &= \{f(x_1; \dots; x_n) \mid f(1; \dots; 1) = 1\}\\
+    L   &= \{f(x_1; \dots; x_n) = a_1x_1 \oplus \ldots \oplus a_nx_n \mid a_i \in \Omega, i \in \overline{0, n}\} - \text{класс линейных функций}\\
+    S   &= \{f(x_1; \dots; x_n) \mid f(x_1; \dots; x_n) \equiv \overline{f(\overline{x_1}; \dots; \overline{x_n})} \} - \text{класс самодвойственных функций} \\
+    M   &= \{f(x_1; \dots; x_n) \mid \text{верно} \vec{\alpha} \preccurlyeq \vec{\beta}, \text{то} f(\vec{\alpha} \leq f(\vec{\beta})) \forall \vec{\alpha}, \vec{\beta} \in \Omega^n\} - \text{класс монотонных функций}
+\end{align*}
+
+\lem Булева функция $f(x_1; \dots; x_n)$ не является монотонной $\Leftrightarrow \exists \vec{\alpha}$ и $\vec{\beta}$ отличающиеся
+только в одной координате (соседние наборы), такие что $\vec{\alpha} \preccurlyeq \vec{\beta}$ и $f(\vec{\alpha}) > f(\vec{\beta})$.
+
+\thr $T_0, T_1, M, S, L$ - замкнуты.
+
+\thr (Критерий Поста)
+
+Система булевых функций $\K$ полна $\Leftrightarrow \K$ содержит функции из $F_2 \backslash T_0, F_2 \backslash T_1, F_2 \backslash M, F_2 \backslash S, F_2 \backslash L$.
+
+\proof 
+
+    $\underline{\text{Необходимость}}$
+
+    $\forall$ произвольного замкнутого класса $G \neq F_2$, если $\K$ не содержит ни одной функции из $F \backslash G$, то $\K \subset G \Rightarrow [\K] \subset [G] \neq F_2 \Rightarrow \K$ - не
+является полной.
+
+    $\underline{\text{Достаточность}}$
+
+    Рассмотрим функции $f_1 \notin T_0, f_2 \notin T_1, f_3 \notin L, f_4 \notin S, f_5 \notin M$.
+    Покажем, что если $\K \nsubseteq G$, где $G \in \{T_0, T_1, S, M, L\}$, то $\overline{x}$ и $x_1\cdot x_2 \in [\K]$.
+
+    Рассмотрим 2 случая:
+    \begin{enumerate}
+        \item $f_1(1; \dots; 1) = 1$, но тогда $f(x; \dots; x) = 1 \in [\K]$. Т.к. $\K \nsubseteq T_1$, то $\exists f_2 \in \K \mid f_2(1;\dots;1) = 0 \in [\K]$.
+        Покажем, что $\overline{x} \in [\K]$. Т.к. $\K \nsubseteq M$, то $\exists f_3 \in \K \mid f_3 \notin M$, т.е. $\exists \vec{\alpha} \preccurlyeq \vec{\beta} \mid f_3(\vec{\alpha}) > f_3(\vec{\beta})$.
+
+        Рассмотрим функцию $f_(a_1; \dots; a_{j-1}; x_j; a_{j+1}; \dots; a_n) \equiv \overline{x_j}$, т.к. 0 и 1 $\in [\K]$, то и $\overline{x} \in [\K]$.
+
+        \item $f_1(1; \dots; 1) = 0$, то $f_1(x; \dots; x) = \overline{x} \in [\K]$. Покажем, что 0 и 1 $\in [\K]$.
+        
+        Рассмотрим $f_4 \in \K \mid f_4 \notin S \Rightarrow \exists (a_1; \dots; a_n) \mid f_4(a_1; \dots; a_n) = f_4(\overline{a_1}; \dots; \overline{a_n}) = const \in \{0,1\} \in [\K]$.
+        Т.к. $\overline{x} \in [\K]$, то 0 и 1 $\in [\K]$.
+    \end{enumerate}
+
+    Покажем $x_1 \cdot x_2 \in [\K]$.
+
+    Т.к. $\K \notin L$, то $\exists f_5 \in \K \mid f_5 \notin L$, т.е. в ее многочлене Жегалкина \emph{$\exists$ моном степени больше 1}(*) $\Rightarrow \exists$  моном, содержащий $x_1 \cdot x_2$.
+
+    Рассмотрим многочлен Жегалкина функции $f_5$:
+    $$
+        f_5(x_1; \dots; x_n) = x_1 \cdot x_2 \cdot g_1(x_3; \dots; x_n) \oplus x_1 \cdot g_2(x_3;\dots;x_n) \oplus x_2 \cdot g_3(x_3; \dots; x_n) \oplus g_4(x_3; \dots; x_n).
+    $$
+
+    Рассмотрим функцию $f$, полученную из $f_5$, следующим образом:
+    $$
+    f(x_1; x_2) = f_5(x_1; x_2; a_3; \dots; a_n) = x_1x_2C_1 \oplus x_1C_2 \oplus x_2C_3 \oplus C_4.
+    $$
+
+    $C_1 = 1$, т.к. см (*). Рассмотрим функцию $f(x_1 \oplus C_3; x_2 \oplus C_2) = x_1x_2 \oplus C_2C_3 \oplus C_4 \Rightarrow x_1x_2 \in [\K]$. $\blacksquare$
+
