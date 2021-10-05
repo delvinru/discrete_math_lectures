@@ -3,11 +3,11 @@
 \opri Пусть $2^{X}$ - булеан множества $X$, т.е. совокупность всех подмножеств множества $X$. Пусть $(X_1; \dots; X_n)$ - некоторая $n$-выборка из булеана. Вектор $(x_1; \dots; x_n)$, состоящий из элементов множества $X$, называется трансверсалью семейства $(X_1; \dots; X_n)$, если выполнены следующие отношения:
 
 \begin{enumerate}
-\item $x_i \notin X_i$; $1 \leq i \leq n$;
-\item $x_i \neq x_j$; $i \neq j$; $1 \neq i$, $j \leq n$.
+\item $x_i \notin X_i$ ; $1 \leq i \leq n$;
+\item $x_i \neq x_j$ ; $i \neq j$; $1 \neq i$, $j \leq n$.
 \end{enumerate}
 
-Иными словами имеем систему различных представителей семейства $(X_1; \dots; X_n)$.\\
+Иными словами имеем систему различных представителей семейства $(X_1; \dots; X_n)$ .\\
 
 \thr \textbf{(Критерий Ф.Холла)}
 Для того, чтобы семейство $(X_1; \dots; X_n)$ имело трансверсаль, необходимо и достаточно, чтобы $\forall$ k $\in \overline{1,n}$ и $\forall$ k-сочетания $i \leq j_1 < \dots < j_k \leq n$ выполнялось условие:
@@ -19,12 +19,12 @@ $|X_{j_1} \cup \dots \cup X_{j_k}|\geq k$. (*)
 \textbf{Доказательство:}\\
 
 \textbf{Необходимость:}\\
-Пусть $\exists (x_1; \dots; x_n)$ тр. $ (X_1; \dots; X_n)$. Тогда $ \forall$ k $\in \overline{1,n}$ и $\forall$ набора $1 \leq j_1 < \dots < j_k\leq n$ имеем $x_{j_1} \in X_{j_1}, \dots, x_{j_k} \in X_{j_k}$ и $x_{j_s} \neq x_{j_t}$ при $j_t \neq j_s \Rightarrow |X_{j_1} \cup \dots \cup X_{j_k}| \geq k = |{x_1; \dots; x_k}|$.
+Пусть $\exists (x_1; \dots; x_n)$ тр. $(X_1; \dots; X_n)$. Тогда $\forall k \in \overline{1,n}$ и $\forall$ набора $1 \leq j_1 < \dots < j_k\leq n$ имеем $x_{j_1} \in X_{j_1}, \dots, x_{j_k} \in X_{j_k}$ и $x_{j_s} \neq x_{j_t}$ при $j_t \neq j_s \Rightarrow |X_{j_1} \cup \dots \cup X_{j_k}| \geq k = |{x_1; \dots; x_k}|$.
 
 \textbf{Достаточность:}\\
-Индукция по $n$. Пусть $n=1$, тогда
-$|X_1| \leq 1 \Rightarrow {x_1}$ тр $X_1$.
-Предположение индукции: $\forall n^' < n$ из условия (*) $\Rightarrow \exists$ трансверсали для $n^'$множеств. 
+Индукция по $n$. Пусть $n=1$ , тогда
+$|X_1| \leq 1 \Rightarrow {x_1}$ тр $X_1$ .
+Предположение индукции: $\forall n' < n$ из условия (*) $\Rightarrow \exists$ трансверсали для $n'$ множеств. 
 
 Рассмотрим 2 случая:\\
 
@@ -53,8 +53,8 @@ $\geq k+l-k=l$, т.к. верно условие (*) для нештрихова
 \utv \\
 
 \begin{enumerate}
-\item $Mult(F) = <b>$
-\item $t * |Mult(F)|=T(F)$
+\item $Mult(F) = <b>$;
+\item $t * |Mult(F)|=T(F)$;
 \item  Если $f$ - примитивный, то $t= {q^m - 1}/{q-1}$, где $m=deg(f(x)), Multi(F)=P^*, b=F(0)$.
 \end{enumerate}
 
@@ -66,15 +66,15 @@ $\geq k+l-k=l$, т.к. верно условие (*) для нештрихова
 
 Тогда $T=[T(F_1), \dots, T(F_k)] = (q^{m_1} - 1) * \dots * ((q^{m_k} - 1))/((q-1)^{k-1})$.
 
-$(q^{m_1} - 1) * (q^{m_k} - 1)$, каждый из них лежит на цикле длины $T$ и таких циклов $(q-1)^{k-1}$. Будем считать, что начальное состояние $\vec{\alpha_0} = (u_1(0), \dots, u_1(m_i - i), u_2(m_2-1), \dots, u_k(0), \dots, u_k(m_k-1))$ выбирается из множества $S$ всех состояний, тогда $\vec{\alpha_i}=(u_i(i), \dots, u_i(i+m_1-1), \dots, u_k(i), \dots, u_k(i+m_k-1) \in S$.
+$(q^{m_1} - 1) * (q^{m_k} - 1)$ , каждый из них лежит на цикле длины $T$ и таких циклов $(q-1)^{k-1}$ . Будем считать, что начальное состояние $\vec{\alpha_0} = (u_1(0), \dots, u_1(m_i - i), u_2(m_2-1), \dots, u_k(0), \dots, u_k(m_k-1))$ выбирается из множества $S$ всех состояний, тогда $\vec{\alpha_i}=(u_i(i), \dots, u_i(i+m_1-1), \dots, u_k(i), \dots, u_k(i+m_k-1) \in S$.
  Последовательность $(\vec{\alpha_i}_{i=0})$ - чисто периодическая с периодом $T$.
-Каждый вектор $\vec{\alpha} \in S$ запишем в виде $\vec{\alpha} = (\vec{\alpha}(i); \dots; \vec{\alpha}(k))$, где $\vec{\alpha}(j) \in P^{m_j} \ {\vec{0}}$.
+Каждый вектор $\vec{\alpha} \in S$ запишем в виде $\vec{\alpha} = (\vec{\alpha}(i); \dots; \vec{\alpha}(k))$ , где $\vec{\alpha}(j) \in P^{m_j} \ {\vec{0}}$.
 
 Зададим отношение ~ $|\forall \vec{\alpha}, \vec{\beta} \vec{\alpha}~\vec{\beta} \Leftrightarrow \exists c_1, \dots, c_k \in P^*|\vec{\alpha}(j) = c_j \vec{\beta}(j) \forall j \in \videhat{1,k}$
 
-Пусть $q_j$ - корень многочлена $F_j(x)$ в расширении $GF(q^{m_j})$ поля $P$, где $j \in \overline{1,k}$. Из пункта 3 утверждения следует, что $b_j = a_j \frac{q^{m_j}-1}{q-1} = a_j Tred(F_j), i \in \overline{1,k}$, т.е. имеем мультипликатор многочлена $F_j(x)$. Пусть $m=m_1; \dots; m_k$, положим $\forall \vec{\alpha}, \vec{\beta} \in S  \vec{\alpha} \stackrel{red}{\sim} \vec{\beta} \Leftrightarrow \exists i \in {0, \dots, q-2} | \vec{\alpha}(j) = \vec{\beta}(j) * b^{m/m_j}, \forall j \in \overline{1,k}$.
+Пусть $q_j$ - корень многочлена $F_j(x)$ в расширении $GF(q^{m_j})$ поля $P$, где $j \in \overline{1,k}$. Из пункта 3 утверждения следует, что $b_j = a_j \frac{q^{m_j}-1}{q-1} = a_j Tred(F_j), i \in \overline{1,k}$ , т.е. имеем мультипликатор многочлена $F_j(x)$ . Пусть $m=m_1; \dots; m_k$, положим $\forall \vec{\alpha}, \vec{\beta} \in S  \vec{\alpha} \stackrel{red}{\sim} \vec{\beta} \Leftrightarrow \exists i \in {0, \dots, q-2} | \vec{\alpha}(j) = \vec{\beta}(j) * b^{m/m_j}, \forall j \in \overline{1,k}$ .
 
-Для любого вектора $\exists$ ровно $q-1$ вектор, находящийся с ним в отношении $\stackrel{red}{\sim}$.
+Для любого вектора $\exists$ ровно $q-1$ вектор, находящийся с ним в отношении $\stackrel{red}{\sim}$ .
 
 \thr
 Пусть $\vec{\gamma_1}, \vec{\gamma_2} \in S$, тогда
