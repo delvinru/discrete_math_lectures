@@ -39,14 +39,14 @@ $|X_1| \leq 1 \Rightarrow {x_1}$ тр $X_1$ .
 Т.к. можно перенумеровать подмножества, то не ограничивая общности считаем $|X_1 \cup \dots \cup X_k|=k$. По предположению индукции $\exists$ трансверсаль $(x_1; \dots; x_k)$ тр. $(X_1; \dots; X_k)$, т.к. $k<n$ и ${x_1;\dots;x_k}=|X_1 \cup \dots \cup X_k|$.
 
 Рассмотрим семейство множеств $(X_{k+1}; \dots; X_n)$, где $X_i'=X_i \ {x_1;\dots;x_k}, k+1 \leq i \leq n$. Для этого семейства верно условие (*), т.к. $\forall 1 \leq l \leq n-k$ и $\forall 1 \leq \nu_1 < \dots < \nu_l \leq n-k$ имеем $|X_{k+{\nu_1}}' \cup \dots \cup X_{k+{\nu_l}}' \cup X_1 \dots \cup X_k|-k \geq |X_{k+{\nu_1}}' \cup \dots \cup X_{k+{\nu_l}} \cup X_1 \dots \cup X_k|-k \geq$
-Штрихи можно снять, т.к. ${x_1;\dots;x_k}$ и так содержится в $X_1 \cup \dots \cup X_k$.
+Штрихи можно снять, т.к. ${x_1; \dots; x_k}$ и так содержится в $X_1 \cup \dots \cup X_k$.
 $\geq k+l-k=l$, т.к. верно условие (*) для нештрихованных множеств. Таким образом $\exists  (x_{k+1}; \dots; x_n)$ тр. $(X_{k+1}'; \dots; X_n') \Rightarrow \exists (x_1; \dots; x_n)$ тр. $(X_1; \dots; X_n)$.\\
 
 \example 1. Представители различных классов эквивалентности
 
 \example 2. Остовное дерево графа. Его ребра - трансверсали множества рёбер графа.\\
 
-\opr Пусть $P=GF(q)$ - конечное поле из $q$ элементов, $q=p^d$, где $p \in \mathds{P}$ (простое). Пусть $F(x)$ - реверсивный многочлен (т.е. $F(0) \neq 0 )$ над $P$. Найдутся $a \in P$ и $k \in \N : F(x)| x^k - a.$ Наименьшее $k$ с таким свойством назовём редуцированным периодом (Обозначение: $Tred(F)$). Элемент $a$ назовём мультипликатором многочлена $F(x)$. Обозначение $(Mult(F))$ - множество всех мультипликаторов.
+\opr Пусть $P=GF(q)$ - конечное поле из $q$ элементов, $q=p^d$, где $p \in \mathbb{P}$ (простое). Пусть $F(x)$ - реверсивный многочлен (т.е. $F(0) \neq 0 )$ над $P$. Найдутся $a \in P$ и $k \in \N : F(x)| x^k - a.$ Наименьшее $k$ с таким свойством назовём редуцированным периодом (Обозначение: $Tred(F)$). Элемент $a$ назовём мультипликатором многочлена $F(x)$. Обозначение $(Mult(F))$ - множество всех мультипликаторов.
 
 Пусть $F(x)|x^t - b$, где $t = Tred(F)$. Тогда
 
@@ -55,7 +55,7 @@ $\geq k+l-k=l$, т.к. верно условие (*) для нештрихова
 \begin{enumerate}
 \item $Mult(F) = <b>$;
 \item $t * |Mult(F)|=T(F)$;
-\item  Если $f$ - примитивный, то $t= {q^m - 1}/{q-1}$, где $m=deg(f(x)), Multi(F)=P^*, b=F(0)$.
+\item  Если $f$ - примитивный, то $t= \frac{q^m - 1}{q-1}$, где $m=deg(f(x)), Multi(F)=P^*, b=F(0)$.
 \end{enumerate}
 
 Рассмотрим следующую модель ДСЧ (Датчик случайных чисел).\\
@@ -64,13 +64,13 @@ $\geq k+l-k=l$, т.к. верно условие (*) для нештрихова
 
 Пусть $F_1, \dots, F_k$ - многочлены попарно взаимопростых степеней $m_1, \dots m_k$.
 
-Тогда $T=[T(F_1), \dots, T(F_k)] = (q^{m_1} - 1) * \dots * ((q^{m_k} - 1))/((q-1)^{k-1})$.
+Тогда $T=[T(F_1), \dots, T(F_k)] = \frac{(q^{m_1} - 1) \cdot \ldots \cdot (q^{m_k} - 1)}{(q-1)^{k-1})}$.
 
 $(q^{m_1} - 1) * (q^{m_k} - 1)$ , каждый из них лежит на цикле длины $T$ и таких циклов $(q-1)^{k-1}$ . Будем считать, что начальное состояние $\vec{\alpha_0} = (u_1(0), \dots, u_1(m_i - i), u_2(m_2-1), \dots, u_k(0), \dots, u_k(m_k-1))$ выбирается из множества $S$ всех состояний, тогда $\vec{\alpha_i}=(u_i(i), \dots, u_i(i+m_1-1), \dots, u_k(i), \dots, u_k(i+m_k-1) \in S$.
  Последовательность $(\vec{\alpha_i}_{i=0})$ - чисто периодическая с периодом $T$.
 Каждый вектор $\vec{\alpha} \in S$ запишем в виде $\vec{\alpha} = (\vec{\alpha}(i); \dots; \vec{\alpha}(k))$ , где $\vec{\alpha}(j) \in P^{m_j} \ {\vec{0}}$.
 
-Зададим отношение ~ $|\forall \vec{\alpha}, \vec{\beta} \vec{\alpha}~\vec{\beta} \Leftrightarrow \exists c_1, \dots, c_k \in P^*|\vec{\alpha}(j) = c_j \vec{\beta}(j) \forall j \in \videhat{1,k}$
+Зададим отношение ~ $|\forall \vec{\alpha}, \vec{\beta} \vec{\alpha}~\vec{\beta} \Leftrightarrow \exists c_1, \dots, c_k \in P^*|\vec{\alpha}(j) = c_j \vec{\beta}(j) \forall j \in \overline{1,k}$
 
 Пусть $q_j$ - корень многочлена $F_j(x)$ в расширении $GF(q^{m_j})$ поля $P$, где $j \in \overline{1,k}$. Из пункта 3 утверждения следует, что $b_j = a_j \frac{q^{m_j}-1}{q-1} = a_j Tred(F_j), i \in \overline{1,k}$ , т.е. имеем мультипликатор многочлена $F_j(x)$ . Пусть $m=m_1; \dots; m_k$, положим $\forall \vec{\alpha}, \vec{\beta} \in S  \vec{\alpha} \stackrel{red}{\sim} \vec{\beta} \Leftrightarrow \exists i \in {0, \dots, q-2} | \vec{\alpha}(j) = \vec{\beta}(j) * b^{m/m_j}, \forall j \in \overline{1,k}$ .
 
