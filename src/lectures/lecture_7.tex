@@ -1,0 +1,58 @@
+\section{Перманенты. Формула Райзера}
+
+Рассмотрим матрицу $A=[a_{i_j}]_{n \times m}$, \\ $i\in\{1,\ldots,n\}=N_n$,
+ $j \in \{1,\ldots,m\}=N_m,$ $n \leq m$, с элементами $a_{i_j}$ из некоторого коммутационного кольца.
+
+\opr Перманент матрицы $A$ определяется равенством
+$$
+Per A = \sum_{1\leq j_1<\ldots<j_n\leq m} a_{1_{j_1}}, a_{2_{j_2}}, \ldots, a_{n_{j_n}},
+$$
+или иначе 
+$$
+Per A = \sum_{\sigma:N_n \rightarrow N_m} a_1 \sigma(1) \cdot \ldots \cdot a_n \sigma(n)
+$$
+
+Суммирование ведется по всем инъективным отображениям \\ $\sigma:N_n \rightarrow N_m$.
+
+\prop
+\begin{enumerate}
+	\item \opr элементы $a_{i_j}$ и $a_{k_l}$ неколлинеарны, если $i\neq k$ и $j\neq l$. Тогда перманент $A$ равен сумме произведений (всех) по $n$ неколлинеарных элементов матрицы $A$.
+	\item Если в $A$ $\exists$ нулевая строка или $m-n+1$ нулевых столбцов, то $Per A=0$.
+ 	\item Если $m=n$, то $Per A^T = Per A$.
+	\item $Per$ $\sqcap A\sqcap'$, где $\sqcap'$ и $\sqcap$- подстановочные матрицы порядков $n$ и $m$.
+	\item При умножении строки матрицы на некоторый элемент её перманент умножается на этот элемент.
+	\item $Per A=Per {A^0}_{i_j} - a_{i_j} Per(A(i|j))$. ${A^0}_{i_j}$ - матрица $A$ с нулём на месте элемента $a_{i_j}$; $(A(i|j))$ - матрица, полученная из $A$ вычёркиванием $i$-строки и $j$-столбца.
+	\item $Per A = \sum\limits_{j=1}^m a_{i_j} Per A(i|j)$
+	\item $\sqsupset \mathfrak{X}_1; \ldots;\mathfrak{X}_n$ - подмножества $m$-множества $X$, \\$R(\mathfrak{X}_1;\ldots;\mathfrak{X}_n)=|\{(x_1;\ldots;x_n):(x_1;\ldots;x_n)$ трансверсали $(\mathfrak{X}_1;\ldots;\mathfrak{X}_n)\}|$ \\и $A=[a_{i_j}]_{n \times m},i\in\overline{1;n}$,$j\in\overline{1;m}$,  
+        \begin{equation*}
+            a_{i_j} = 
+            \begin{cases}
+            1 &\text{$x_j \in \mathfrak{X}_i$}\\
+            0 &\text{$x_j \notin \mathfrak{X}_i$}
+            \end{cases}
+            \end{equation*}
+            тогда $R(\mathfrak{X}_1;\ldots;\mathfrak{X}_n)=PerA$
+    \item Число подстановок, противоречивых с $k$ заданным $\sqsupset S_1;\ldots;S_k \in S_n$, $\pi_1;\ldots;\pi_k$ - их подстановочные матрицы. \\ Тогда $\sqsupset M_n(S_1;\ldots;S_k)=|\{S:S\uparrow S_1$, $S\uparrow S_k$; $S\in S_n \} | = Per(\overline j-(\sqcap_1\vee \ldots \vee \sqcap_k))$ ($\overline j$ - матрица из всех единиц, $\sqcap_1\vee \ldots \vee \sqcap_k$ - поэлементная дизъюнкция)
+    \item Если в условии пункта 9 подстановки $s_t$ и $s_l$, $t \neq l \in \overline{1;k}$ попарно противоречивы, то $M_n(S_1; \ldots; S_k)=(\overline j - \sqcap_1 - \ldots - \sqcap_k))$
+    \item Задачи о встречах и беспорядках - суть: вычисление 
+    $h_n=|\{S:S\uparrow e$, $S\in S_n \}|$, $n \geq 1$. $h_n=Per(\overline j - E)=n! \sum\limits_{k=0}^n \frac{(-1)^n}{k!}$ ($n$ писем $n$ адресатам подписывает конверты и случайным образом вкладывает письма).
+    \item $\sqsupset S_1$ и $S_2$ - подстановки степени $n$, $\sqcap_1$ и $\sqcap_2$ - их матрицы. \\$Per(a\sqcap_1+b\sqcap_2) = \prod\limits_{i=1}^k (a^{li}+b^{li})$, где $l_1;l_2;\ldots;l_k$ - длины циклов подстановок $S^{-1}_1 S_2$ и $a;b \in \C$
+\end{enumerate}
+
+\thr \textbf{(Формула Райзера:)}
+
+$PerA=\sum\limits_{k=m-n}^m(-1)^{k-(m-n)}C^{m-n}_k S_k$.\\$S_k=\sum\limits_{\substack{1 \leq j_1 < \ldots < j_k \leq n\\1 \leq k \leq n}} \prod\limits_{i=1}^n(\sum\limits_{j=1}^m a_{i_j} -\sum\limits_{(j_e)} a_{i_{j_e}})$. 
+$S_0=\prod\limits_{i=1}^n(a_{i_1}+\ldots+a_{i_m})$.
+
+\proof
+$\rhd$ Имеем $PerA_1=\sum\limits_{\sigma:N_n \rightarrow N_m}\prod\limits_{i=1}^n a_{i\sigma(i)}$, где суммирование ведётся по всем инъективным отображениям $\sigma$. Вес элемента $\sigma$ равен $a_{1_{j_1}}a_{2_{j_2}}\ldots a_{n_{j_n}}$. Будем говорить, что $\sigma$ обладает свойством $A_j$, если в её двухстрочной записи нет элемента $j\in N_m$. 
+Покажем $PerA_2=M(m-n)=\sum\limits_{r=m-n}^n (-1)^{r-m+n}C^{m-n}_r S_r$. $S_0=\sum\limits_{(i)}^n$; $S_r=\sum\limits_{1\leq j_1<\ldots<j_r\leq n}M(A_{j_1};\ldots;A_{j_r})$ (Метод включения исключения).
+$M(m-n)$ - сумма весов отображений $\sigma$ таких, что в нижнем ряду их двухстрочной записи отсутствуют ровно $m-n$ элементов из $N_m$, то есть $\exists$ ровно $n$ элементов из $N_m$ (различных) $\Rightarrow$ $\sigma$-инъективное $\Rightarrow$ $(PerA_1 \Rightarrow PerA_2)$.
+$S_0=\sum\limits_{1\leq j_1<\ldots<j_r\leq m}a_{1_{j_1}}\ldots a_{n_{j_n}}=\prod\limits_{i=1}^n(a_{i_1};\ldots;a_{i_m})$ - вес всех отображений $\{\sigma\}$.
+\\Вес отображений $\sigma$, у которорых в нижней строке двухстрочной записи нет элементов $j_1;\ldots;j_r$ это вес отображений, обладающих свойствами $A_{j_1}\ldots A_{j_r}$. Этот вес $M(A_{j_1};\ldots;A_{j_r})$ получается выбрасыванием из $S_0$ в каждой из скобок производных элементов матрицы с № $j_1-j_r$. Или иначе - вычитанием $\sum\limits_{l=1}^r a+i\neq l$, $1\leq i\leq n \Rightarrow$ Теорема доказана. $\triangleleft$
+
+
+\thr \textbf{(Кёнига - Фробениуса:)}
+
+$\forall$ необратной матрицы размерности $m\times n$ 
+$PerA=0 \Leftrightarrow \exists  \theta_{p\times q}|$, $p+q>m$.
