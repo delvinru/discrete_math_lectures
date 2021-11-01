@@ -13,15 +13,15 @@ Per A = \sum_{\sigma:N_n \rightarrow N_m} a_1 \sigma(1) \cdot \ldots \cdot a_n \
 $$
 
 Суммирование ведется по всем инъективным отображениям \\ $\sigma:N_n \rightarrow N_m$.
-
+\\
 \prop
 \begin{enumerate}
-	\item \opr элементы $a_{i_j}$ и $a_{k_l}$ неколлинеарны, если $i\neq k$ и $j\neq l$. Тогда перманент $A$ равен сумме произведений (всех) по $n$ неколлинеарных элементов матрицы $A$.
+	\item \opr элементы $a_{i_j}$ и $a_{k_l}$ неколлинеарны, если $i\neq k$ и $j\neq l$.\\Тогда перманент $A$ равен сумме произведений (всех) по $n$ неколлинеарных элементов матрицы $A$.
 	\item Если в $A$ $\exists$ нулевая строка или $m-n+1$ нулевых столбцов, то $Per A=0$.
  	\item Если $m=n$, то $Per A^T = Per A$.
-	\item $Per$ $\sqcap A\sqcap'$, где $\sqcap'$ и $\sqcap$- подстановочные матрицы порядков $n$ и $m$.
+	\item $Per \Pi A\Pi'$, где $\Pi'$ и $\Pi$- подстановочные матрицы порядков $n$ и $m$.
 	\item При умножении строки матрицы на некоторый элемент её перманент умножается на этот элемент.
-	\item $Per A=Per {A^0}_{i_j} - a_{i_j} Per(A(i|j))$. ${A^0}_{i_j}$ - матрица $A$ с нулём на месте элемента $a_{i_j}$; $(A(i|j))$ - матрица, полученная из $A$ вычёркиванием $i$-строки и $j$-столбца.
+	\item $Per A=Per {A^0}_{i_j} - a_{i_j} Per(A(i|j))$. \\${A^0}_{i_j}$ - матрица $A$ с нулём на месте элемента $a_{i_j}$. $(A(i|j))$ - матрица, полученная из $A$ вычёркиванием $i$-строки и $j$-столбца.
 	\item $Per A = \sum\limits_{j=1}^m a_{i_j} Per A(i|j)$
 	\item $\sqsupset \mathfrak{X}_1; \ldots;\mathfrak{X}_n$ - подмножества $m$-множества $X$, \\$R(\mathfrak{X}_1;\ldots;\mathfrak{X}_n)=|\{(x_1;\ldots;x_n):(x_1;\ldots;x_n)$ трансверсали $(\mathfrak{X}_1;\ldots;\mathfrak{X}_n)\}|$ \\и $A=[a_{i_j}]_{n \times m},i\in\overline{1;n}$,$j\in\overline{1;m}$,  
         \begin{equation*}
@@ -32,11 +32,10 @@ $$
             \end{cases}
             \end{equation*}
             тогда $R(\mathfrak{X}_1;\ldots;\mathfrak{X}_n)=PerA$
-    \item Число подстановок, противоречивых с $k$ заданным $\sqsupset S_1;\ldots;S_k \in S_n$, $\pi_1;\ldots;\pi_k$ - их подстановочные матрицы. \\ Тогда $\sqsupset M_n(S_1;\ldots;S_k)=|\{S:S\uparrow S_1$, $S\uparrow S_k$; $S\in S_n \} | = Per(\overline j-(\sqcap_1\vee \ldots \vee \sqcap_k))$ ($\overline j$ - матрица из всех единиц, $\sqcap_1\vee \ldots \vee \sqcap_k$ - поэлементная дизъюнкция)
-    \item Если в условии пункта 9 подстановки $s_t$ и $s_l$, $t \neq l \in \overline{1;k}$ попарно противоречивы, то $M_n(S_1; \ldots; S_k)=(\overline j - \sqcap_1 - \ldots - \sqcap_k))$
-    \item Задачи о встречах и беспорядках - суть: вычисление 
-    $h_n=|\{S:S\uparrow e$, $S\in S_n \}|$, $n \geq 1$. $h_n=Per(\overline j - E)=n! \sum\limits_{k=0}^n \frac{(-1)^n}{k!}$ ($n$ писем $n$ адресатам подписывает конверты и случайным образом вкладывает письма).
-    \item $\sqsupset S_1$ и $S_2$ - подстановки степени $n$, $\sqcap_1$ и $\sqcap_2$ - их матрицы. \\$Per(a\sqcap_1+b\sqcap_2) = \prod\limits_{i=1}^k (a^{li}+b^{li})$, где $l_1;l_2;\ldots;l_k$ - длины циклов подстановок $S^{-1}_1 S_2$ и $a;b \in \C$
+    \item Число подстановок, противоречивых с $k$ заданным \\$\sqsupset S_1;\ldots;S_k \in S_n$, $\pi_1;\ldots;\pi_k$ - их подстановочные матрицы. \\ Тогда $\sqsupset M_n(S_1;\ldots;S_k)=|\{S:S\uparrow S_1$, $S\uparrow S_k$; $S\in S_n \} | = Per(\overline j-(\Pi_1\vee \ldots \vee \Pi_k))$ ($\overline j$ - матрица из всех единиц, $\Pi_1\vee \ldots \vee \Pi_k$ - поэлементная дизъюнкция)
+    \item Если в условии пункта 9 подстановки $S_t$ и $S_l$, $t \neq l \in \overline{1;k}$ попарно противоречивы, то \\$M_n(S_1; \ldots; S_k)=(\overline j - \Pi_1 - \ldots - \Pi_k))$
+    \item Задачи о встречах и беспорядках - суть: \\вычисление $h_n=|\{S:S\uparrow e$, $S\in S_n \}|$, $n \geq 1$. \\$h_n=Per(\overline j - E)=n! \sum\limits_{k=0}^n \frac{(-1)^n}{k!}$ ($n$ писем $n$ адресатам подписывает конверты и случайным образом вкладывает письма).
+    \item $\sqsupset S_1$ и $S_2$ - подстановки степени $n$, $\Pi_1$ и $\Pi_2$ - их матрицы. \\$Per(a\Pi_1+b\Pi_2) = \prod\limits_{i=1}^k (a^{li}+b^{li})$, где $l_1;l_2;\ldots;l_k$ - длины циклов подстановок $S^{-1}_1 S_2$ и $a;b \in \C$
 \end{enumerate}
 
 \thr \textbf{(Формула Райзера:)}
@@ -55,4 +54,4 @@ $S_0=\sum\limits_{1\leq j_1<\ldots<j_r\leq m}a_{1_{j_1}}\ldots a_{n_{j_n}}=\prod
 \thr \textbf{(Кёнига - Фробениуса:)}
 
 $\forall$ необратной матрицы размерности $m\times n$ 
-$PerA=0 \Leftrightarrow \exists  \theta_{p\times q}|$, $p+q>m$.
+$PerA=0 \Leftrightarrow \exists  \theta_{p\times q}| p+q>m$.
