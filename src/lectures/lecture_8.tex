@@ -1,0 +1,172 @@
+\section{Симметричные блок-схемы}
+
+\opr Семейство $(x_1, \dots, x_v)$ подмножеств множества $\mathfrak{X} = \lbrace x_1, \dots, x_v\rbrace$
+называется симметричной сбалансированной неполной блок-схемой или $(v, k , \lambda)$ - конфигурацией, если:
+\begin{align*}
+	&0 < \lambda < k < v - 1 \text{ и } \forall \text{ } i, j  = \overline{1;v} \text{ } (\mathfrak{X}_1, \dots, \mathfrak{X}_v - \text{ блоки})\\
+	&|\mathfrak{X}_i \cap \mathfrak{X}_j| = 
+	\begin{cases}
+		k, i = j \\
+		\lambda, i \neq j
+	\end{cases}
+\end{align*}
+
+\examplei
+
+\begin{align*}
+	x_1 &= \lbrace 2, 3 \rbrace \\
+	x_2 &= \lbrace 1, 3 \rbrace \rightarrow k = 2, \lambda = 1, v = 3\\
+	x_3 &= \lbrace 1, 2 \rbrace \\
+\end{align*}
+Отсебятина: $k = 2$, потому что при объединении $\mathfrak{X}$-ов с одинаковыми индексами получим то же множество с тем же размером.
+$\lambda = 1$, потому что при объединении $\mathfrak{X}$-ов с разными индексами получим множество размером 1.
+$v = 3$ - количество элементов.
+
+Матрица инцидентности $A = (a_{ij})_{v \times v} \mid a_{ij} = $
+$\begin{cases}
+	1, \mathfrak{X}_j \in \mathfrak{X}_i \\
+	0, \mathfrak{X}_j \notin \mathfrak{X}_i
+\end{cases}$
+
+Её элементы обладают следующими свойствами:
+\begin{enumerate}
+	\item $\sum_{j=1}^v a_{ij} = \vert \mathfrak{X}_i \vert = k$
+	\item $\sum_{\mu=1}^v a_{i\mu}a_{j\mu} = \vert \mathfrak{X}_i \cap \mathfrak{X}_j \vert = \lambda \text{, где} i\neq j$
+	\item Скалярное произведение строки или столбца матрицы $A$
+	\begin{equation*}
+		(A_j; A_j) = 
+		\begin{cases}
+			k, i = j \\
+			\lambda, i \neq j
+		\end{cases}
+	\end{equation*}
+	\item $A\overline{j} = k\overline{j}$
+	\item $AA^T = \lambda \overline{j} + (k - \lambda)E$
+	\item $det(AA^T) = (k + \lambda(v - 1))(k - \lambda)^{v - 1}$
+	\item $k(k - 1) = \lambda(v - 1)$
+	\item $\overline{j}A = k\overline{j}$
+	\item $AA^T = A^TA$
+\end{enumerate}
+
+\prim $\overline{j}$ - матрица из всех единиц
+
+\opr Дополнением $(v, k, \lambda)$ - конфигурации $( \mathfrak{X}_1, \dots, \mathfrak{X}_v)$
+называется семейство $(Y_1, \dots, Y_v)$ таких подмножеств множества $\mathfrak{X} = \lbrace x_1, \dots, x_v\rbrace$,
+что $Y_i = \mathfrak{X}\backslash\mathfrak{X}_i$
+
+\utv
+$(Y_1, \dots, Y_v)$ - $(v; v - k; v - 2k + \lambda)$ - конфигурация
+
+Рассмотрим код:
+$k = \lbrace A_1, \dots, A_v,\tilde{A_1}, \dots, \tilde{A_v}$, где $A_i$ строки матрицы инцидентности.
+
+\utv
+\begin{align*}
+	& k - (v; d - 1; t) \text{, где } d - 1 \text{ обнаруживает ошибок, } t - \text{ не проявляет ошибок}\\
+	& d = min\lbrace \rho(A_i, A_j), \rho(\tilde{A_i}, \tilde{A_j})\rbrace = min\lbrace (2(k - \lambda));v - 2(k - \lambda) \rbrace\\
+	& t \leq \frac{d - 1}{2}
+\end{align*}
+
+\opr
+Квадратичная матрица $H_{n\times n}$ называется матрицей Адамара, если $h_{ij} \in \lbrace -1; 1 \rbrace$
+и $HH^T = nE$.
+
+\prop
+\begin{enumerate}
+	\item $det(HH^T) = (detH)^2 = (det \text{ } nE) = n^n$
+	\item $\forall$ матрица Адамара обратима над полем $\Q$
+	\item $\forall H$ - нормальная т.к. $H^TH = HH^T$
+	\item $(H_i, H_j) = $
+	$\begin{cases}
+		n, i = j \\
+		0, i \neq j
+	\end{cases}$
+	столбцы и строки попарно ортогональны
+	\item Перестановка строк и столбцов ппереводит матрицу Адамара в матрицу Адамара
+	\item Умножение на $(-1)$ сохранит свойство быть матрицей Адамара
+\end{enumerate}
+
+\thr
+Для $\exists$ матрицы Адамара необходимо выполнение условий:
+\begin{enumerate}
+	\item либо $n = 1,2$
+	\item либо $n \equiv 0 \text{ } mod \text{ } 4$
+\end{enumerate}
+
+\thr о связи матрицы Адамара с $(v, k, \lambda)$ - кодом
+$\exists$ взаимнооднозначное соответствие между матрицей Адамара размеров $4\mu \times 4\mu$
+и $(4\mu - 1; 2\mu - 1; \mu - 1)$
+
+\proof
+Рассмотрим некоторую нормализованную матрицу Адамара $H$ в ее последних $n - 1$ строках
+и $n - 1$ столбцах. Выделим подматрицу $\tilde{H}$. Матрице $\tilde{H}$ сопоставим $\tilde{A} - 0;1$
+матрицу $(n - 1)\times (n - 1)$. Элементы  матрицы $\tilde{A}$ определяются соотношением
+$h_{ij} = (-1)^{a_{ij}}$.
+
+Для каждой пары различных строк матрицы $\tilde{H}$ соответствующие столбцы матрицы $2\times (n - 1)$
+имеют вид: 
+$\underset{
+\mu - 1
+}{
+\begin{pmatrix}
+	1 \\
+	1
+\end{pmatrix}	
+}$
+$\underset{
+\mu
+}{
+\begin{pmatrix}
+	1 \\
+	-1
+\end{pmatrix}	
+}$
+$\underset{
+\mu
+}{
+\begin{pmatrix}
+	-1 \\
+	1
+\end{pmatrix}	
+}$
+$\underset{
+\mu
+}{
+\begin{pmatrix}
+	-1 \\
+	-1
+\end{pmatrix}	
+}$
+, где $\mu$ убранный $i$-й столбец.
+
+Матрица $\tilde{A}$ - матрица инцидентности, если $v = 4\mu - 1, k = 2\mu, \lambda = \mu$.
+Т.к. $n = 4\mu$ и $(\tilde{A}_i, \tilde{A}_j) = $
+$\begin{cases}
+	2\mu, i = j \\
+	\mu, i\neq j
+\end{cases}$
+
+Рассуждения справедливы и в обратном порядке. А для каждой $(v, k, \lambda)$ конфигурации
+можно построить соответствующий код. $\triangle $
+
+Идея нахождения коэффициента $\omega_a^f$ для б/ф $(A_a^f)$:
+\begin{enumerate}
+	\item $\overrightarrow{f} \rightarrow (-1)^{\overrightarrow{f}}$
+	\item преобразование $+-$ над половинками.
+\end{enumerate}
+
+$] p(f(x) = <a, x>) = \frac{1}{2} + \frac{\triangle_a^f}{2^n}$
+
+\opr
+Упорядоченный набор чисел $\triangle_a^f$ называется статистической структурой функции $f$.
+
+\utv
+\begin{enumerate}
+	\item $\triangle_a^f = 2^{n - 1} - \vert\vert f(x) + <a, x> \vert\vert$
+	\item $\triangle_a^f = 2^{n - 1} W_a^f$
+	\item $\triangle_a^f = -\triangle_a^f$
+	\item $\triangle_a^{f_1 \oplus f_2} = \frac{1}{2^{n - 1}} \sum_{\beta}\triangle_{\beta}^{f_1}\triangle_{a \oplus \beta}^{f_2}$
+	\item $] A -$ невырожденная над $GF(2) \text{ } \beta \in \Omega_2^n \text{ } g(x) = f(Ax + \beta) \text{ } \triangle_{aA^T}^g = (-1)^{<a,b>}\triangle_a^f, a \in \Omega_2^n$
+	\item $] g(x) = f(x) \oplus <\gamma, x> \oplus d_0, $ где $\gamma \in \Omega_2^n, d_0 \in \Omega_2$.
+	Тогда $\triangle_{a\oplus\gamma}^g = (-1)^{d_0}\triangle_a^f$
+\end{enumerate}
