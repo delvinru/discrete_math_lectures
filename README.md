@@ -5,6 +5,8 @@
 ### Полезные ресурсы
 http://detexify.kirelabs.org/classify.html - позволяет рисовать символ, который хочешь и он находит его в синтаксисе теха.
 
+https://www.reed.edu/academic_support/pdfs/qskills/latexcheatsheet.pdf - быстрый гайд по командам латеха для математики.
+
 ---
 
 ### Оформление работы
