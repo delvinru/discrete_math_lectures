@@ -6,4 +6,6 @@
 *.synctex.gz
 *.toc
 
+# Build stuff
 out/main.pdf
+protect.sh
