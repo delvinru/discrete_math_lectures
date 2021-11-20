@@ -1,3 +1,9 @@
-out/main.aux
-out/main.log
-out/main.toc
+# Tex files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
+
+out/main.pdf

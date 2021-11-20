@@ -1,0 +1,63 @@
+\section{Латинские квадраты}
+
+Для элементов симметрической группы подстановок определим понятие противоречивости.
+
+\opr Подстановки $S$ и $S'$ - противоречивы, если $S(i) \neq S'(i) \forall i \in \overline{1,n}$. Обозначается $S\uparrow S'$.
+
+Определим метрику Хемминга как функцию на множестве $N_m^n = \{ S = S(1), \dotsc,S(n) \mid S(i) \in N_m\}$, где $N_m = \{1, \ldots, m\}$\par
+Расстоянием между подстановками назовём $\rho(S',S) = \left|\{i : S(i) \neq S'(i); 1 \leq i \leq n\}\right|$
+Функция $\rho$ является метрикой Хемминга.
+
+\prop
+\begin{enumerate}
+	\item $\rho(S,S') \geq 0$ и $\rho(S,S') = 0 \Leftrightarrow S = S'$
+	\item $\rho(S,S') = \rho(S',S)$
+	\item $\rho(S,S'') \leq \rho(S,S') + \rho(S',S'')$
+\end{enumerate}
+
+\utv $S \uparrow S' \Leftrightarrow \rho(S,S')=n$
+
+\opr Последовательноть из $m$ подстановок степени $n$, $2\leq m\leq n,$ обозначаемая $[S_1, S_2, \dotsc, S_m]_n$ образует латинский прямоугольник размеров $m\times n$, если $S_i\uparrow S_j \:\forall i\neq j$.
+Любая последовательность из одной подстановки образует латинский прямоугольник размеров $1\times n$.
+
+Если $m=n$, то латинский прямоугольник становится квадратом.
+
+Таблицей латинского прямоугольника $[S_1]_n$ является нижняя строка подстановки $S_1$. \par
+В общем случае имеем:
+$\begin{pmatrix}
+S_1(1) & S_1(2) & \dotsc & S_1(n)\\
+S_2(1) & S_2(2) & \dotsc & S_2(n)\\
+\vdots & \vdots  & \ddots   & \vdots  \\
+S_m(1) & S_m(2) & \dotsc & S_m(n)
+\end{pmatrix}$\par
+
+\prop
+\begin{enumerate}
+	\item В любой строке и любом столбце элементы попарно различны.
+	\item В латинском квадрате в любой тройке $(i, j, S_i(j))$ 2 элемента однозначно определяют третий.
+\end{enumerate}
+
+$\emph{\textbf{Теорема 1.}}\forall$ латинского прямоугольника $[S_1, \dotsc, S_m]_n;\: 1\leq m < n, \:\exists S_{m+1}\textbar S_{m+1}\uparrow S_i, \: i\in \overline{1,n}$ добавление которой даёт латинский прямоугольник размеров $(m+1)\times n$
+
+$\emph{\textbf{Теорема 2.}}\forall$ латинского прямоугольника $[S_1, \dotsc, S_m]_n$ существует латинский прямоугольник $[S_{m+1}, \ldots, S_n]_n \mid [S_1, \dotsc, S_n]_n$ - латинский квадрат.
+
+\emph{Док-во Теоремы 1:}\par
+$\rhd$Рассмотрим семейство подмножеств $(\mathfrak{X}_1,\dotsc,\mathfrak{X}_n)$ множества $\mathfrak{X} = N_n$. Положим $\mathfrak{X}_j = N_n\setminus\{S_1(j),\dotsc, S_m(j)\}, \: 1\leq j\leq n$. \par
+Докажем, что $\exists (x_1, \dotsc, x_n)$ тр. $(\mathfrak{X}_1, \dotsc, \mathfrak{X}_n)$. Т.к. подстановки $S_1, \dotsc, S_m$ попарно противоречивы, то $|\mathfrak{X}_i| = n-m, \: i\in \overline{1,n}$. Рассмотрим мультимножество $(\mathfrak{X}_1, \dotsc, \mathfrak{X}_n)$ с порождающим множеством $\mathfrak{X}$, где $[x_1^{a_1},\dotsc, x_n^{a_n}]$ его первичная спецификация. $\sum\limits_i a_i = n(n-m)$. Покажем, что $\forall i, \: a_i = n-m\: (*)$\par
+Зафиксируем $i=1,\dotsc,n\:\forall r=1,\dotsc,m$ однозначно определяется элемент $j_r\in N_n\textbar S_r(j_r)=x_i$, т.к. $S_1, \dotsc, S_m$ попарно противоречивы, то элементы $j_1, \dotsc, j_m$ - попарно различны $\Rightarrow$ по определению $\mathfrak{X}_j, \: x_i\in\mathfrak{X}_{j_r}\: r=1,\dotsc, m; \: x_i\in\mathfrak{X}_j; \notin\{j_1,\dotsc,j_m\}\Rightarrow$ верно (*). \par Покажем, что $(\mathfrak{X}_1,\dotsc, \mathfrak{X}_n)$ удовлетворяет условиям критерия Ф.Холла. Зафиксируем $k\in\overline{1,n}$ и $1\leq j_1<\dotsc<j_k\leq n$. Положим $z=|\mathfrak{X}_{j_1}\cup\dotsc\cup\mathfrak{X}_{j_k}|$. Рассмотрим мультмножества $(\mathfrak{X}_{j_1},\dotsc, \mathfrak{X}_{j_k})$ с порождающим множеством $\mathfrak{X}$, оно включено в большее мультимножество $\mathfrak{X}_1,\dotsc,\mathfrak{X}_n\:(**)$. $[x_1^{a'_1},\dotsc, x_n^{a'_n}]$ - его первичная спецификация, тогда $t'=a'_1+\dotsc+a'_n=k(n-m)$ т.к. (**)$\forall i\in 1,\dotsc,n$ имеет место неравенство $a'_i\leq a_i\Rightarrow a'_i\leq(n-m)$\par
+Т.к. $\mathfrak{X}_{j_1}\cup\dotsc\cup\mathfrak{X}_{j_k}$ - носитель мультимножества $(\mathfrak{X}_{j_1}, \dotsc, \mathfrak{X}_{j_k})$, то $z=|\mathfrak{X}_{j_1}\cup\dotsc\cup\mathfrak{X}_{j_k}|=|\{ i\textbar a'_i>0;i\in 1,\dotsc,n\}|\Rightarrow t'=\sum\limits_i a'_i\leq z(n-m)\Rightarrow z\geq k$ и выполянется условие критерия Ф.Холла $\Rightarrow\exists (x_1, \dotsc,x_n)$тр.$(\mathfrak{X}_1, \dotsc,\mathfrak{X}_n)$. Определим $S_{m+1}$ равенством $S_{m+1}(j)=x;\:S_{m+1}\uparrow S_i\:\forall i\in\overline{1,m}$ т.к. $x_j\in N_n\setminus\{S_1(j),\dotsc, S_m(j)\}\triangleleft$
+
+\opr 2 латинских квадрата называются ортогональными, если $\{S_i(j),S'_i(j)\}=N_n\times N_n$, т.е. при наложении таблиц получаем всевозможные пары. 
+
+\thr Если $n$ - нечетное или $n$ делится на 4, то $\exists$ пара ортогональных латинских квадратов порядка $n\times n$
+
+В случае $n$ - нечётное\par
+$\left.
+\begin{array}{ccc}
+	S_i(j)=k\equiv i+j(mod\:n)\\
+	S'_i(j)=l\equiv i-j(mod\:n)\\
+\end{array}
+\right\}(***)$\par
+т.к. $n$-нечётное, то $\exists !$ пара $i$ и $j$ удовлетворяющих (***).
+
+\examplei Используется в протокле с разделённым секретом.
