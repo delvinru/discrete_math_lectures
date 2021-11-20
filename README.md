@@ -79,3 +79,11 @@ sudo pacman -S texlive-most texlive-lang
 ```bash
 make
 ```
+
+### Password Protected build
+Финальные билды, которые летят в релиз, я буду накрывать паролем, чтобы ограничить доступ. Данная опция будет более актуальна ближе к сессии.
+
+Команда выглядит следующим образом:
+```bash
+qpdf --encrypt [readpass] [ownerpass] 256 -- [infile].pdf [outfile].pdf
+```
