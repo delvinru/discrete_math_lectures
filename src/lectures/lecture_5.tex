@@ -64,10 +64,13 @@ $\geq k+l-k=1$, т.к. верно условие (*) для нештрихова
 
 Пусть $F_1, \dots, F_k$ - многочлены попарно взаимопростых степеней $m_1, \dots m_k$.
 
-Тогда $T=[T(F_1), \dots, T(F_k)] = \frac{(q^{m_1} - 1) \cdot \ldots \cdot (q^{m_k} - 1)}{(q-1)^{k-1})}$.
+Тогда,
+$$
+T=[T(F_1), \dots, T(F_k)] = \frac{(q^{m_1} - 1) \cdot \ldots \cdot (q^{m_k} - 1)}{(q-1)^{k-1}}.
+$$
 
-$(q^{m_1} - 1) \cdot \dotsc \cdot (q^{m_k} - 1)$ , каждый из них лежит на цикле длины $T$ и таких циклов $(q-1)^{k-1}$ . Будем считать, что начальное состояние $\vec{\alpha_0} = (u_1(0), \dots, u_1(m_1 - i),u_2(0),\dotsc, u_2(m_2-1), \dots, u_k(0), \dots, u_k(m_k-1))$ выбирается из множества $S$ всех состояний, тогда $\vec{\alpha_i}=(u_i(i), \dots, u_i(i+m_1-1), \dots, u_k(i), \dots, u_k(i+m_k-1) \in S$.
- Последовательность $((\vec{\alpha_i})_{i=0}^{\infty})$ - чисто периодическая с периодом $T$.
+$(q^{m_1} - 1) \cdot \dotsc \cdot (q^{m_k} - 1)$, каждый из них лежит на цикле длины $T$ и таких циклов $(q-1)^{k-1}$ . Будем считать, что начальное состояние $\vec{\alpha_0} = (u_1(0), \dots, u_1(m_1 - i),u_2(0),\dotsc, u_2(m_2-1), \dots, u_k(0), \dots, u_k(m_k-1))$ выбирается из множества $S$ всех состояний, тогда $\vec{\alpha_i}=(u_i(i), \dots, u_i(i+m_1-1), \dots, u_k(i), \dots, u_k(i+m_k-1) \in S$.
+Последовательность $((\vec{\alpha_i})_{i=0}^{\infty})$ - чисто периодическая с периодом $T$.
 Каждый вектор $\vec{\alpha} \in S$ запишем в виде $\vec{\alpha} = (\vec{\alpha}(1); \dots; \vec{\alpha}(k))$ , где $\vec{\alpha}(j) \in P^{m_j} \textbackslash \{\vec{0}\}$.
 
 Зададим отношение $\sim : \forall \vec{\alpha}, \vec{\beta} \: \vec{\alpha}\sim\vec{\beta} \Leftrightarrow \exists c_1, \dots, c_k \in P^*|\vec{\alpha}(j) = c_j \vec{\beta}(j) \forall j \in \overline{1,k}$
