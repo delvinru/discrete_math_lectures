@@ -1,0 +1,90 @@
+\section {Матроиды}
+Рассмотрим $n$-мерные вектора над некоторым полем, например над $\R$. Множество таких векторов образует векторное пространство размерности $n$.\par
+Некоторое семейство векторов $V^{\downarrow}_1,\ldots, V^{\downarrow}_k$ называется линейно независимым, если $\overline{\exists}$ набор коэффициентов $a_1, \ldots, a_k \in \R | \exists a_i \neq 0$ для : \par $a_1V^{\downarrow}_1 + \ldots + a_kV^{\downarrow}_k = 0^{\downarrow}$.\\ 
+
+\prok 
+\begin{enumerate}
+\item Если $X$ - линейно независимое семейство векторов, то $Y \subset X$ также ЛНЗ (линейно независимо) 
+\item Если $A$ - некоторое семейство векторов и $I_1;I_2$ - линейно независимые подмножества в $A$, максимальное по включению (т.е.$\forall V^{\downarrow} \in A \backslash I_i \mid I_i\cup \{ V^{\downarrow} \} $) становится линейно зависимым семейством, то $|I_1| = |I_2|$.
+\item Если $I_1,I_2$ - ЛНЗ семейства и $|I_1| > |I_2|$, то $\exists V^{\downarrow} \in I_1 \backslash I_2 $ такой, что:\par 
+$I_2 \cup \{ V^{\downarrow} \} $- ЛНЗ семейство (дополнение до базиса).                                                             
+\end{enumerate}
+
+\note Исходя из этих свойств получается много полезных результатов линейной алгебры. Возникает естественный вопрос: можно ли обобщить это понятие, выбирая указанные свойства в качестве аксиом. 
+
+\opr Пусть $E $ - конечное непустное множество. $Y$ - некоторое семейство подмножества множества $E$ (то есть $Y \subseteq 2^E$). Причем, если $A \in Y$ и $ B \subseteq A$, то $ B \in Y$. Тогда пара $(E;Y)$ называется наследственной системой подмножеств.
+
+\opr Элементы из $Y$ будем называть независимыми множествами. Остальные подмножества $A \subset E \mid A \notin Y $ назовем зависимыми.
+
+\opr Наследственную систему подмножеств называют матроидом, если $ \forall A \subset E$ и $ \forall I_1,I_2$ максимальным по включению независимых подмножеств множества $A$ верно: $|I_1| = |I_2|$.
+
+\oprk Наследственная система подмножеств называется матроидом $\Leftrightarrow \forall I_1,I_2 \in Y : |I_1|>|I_2| \Rightarrow \exists e \in I_1 \backslash I_2 | I_2 \cup \{ e \} \in Y$.\\
+
+\example 
+\begin{enumerate}
+\item Пусть $A$ - матрица размеров $n \times m$ ($n$ - строки, $m$ - столбцы).
+$A = (A^{\downarrow}_1, \ldots , A^{\downarrow}_m)$ над $R$. Положим $ E = \{ A^{\downarrow}_1,\ldots,A^{\downarrow}_m \}$ - множество вектор столбцов, $ \{ A_{i1}, \ldots, A_{ik} \} \in Y \Leftrightarrow$ семейство $ \{ A^{\downarrow}_{i_1}, \ldots, A^{\downarrow}_{i_k} \} $ ЛНЗ.
+Матроид $(E;Y)$. Такие матроиды называют матричными. 
+
+\item $E$ - конечное непустое множество и $0 \leqslant k \leqslant |E|$. \\Пусть $A \subseteq E \Leftrightarrow |A| < k $. $ (E;Y) $ - матроид, который называется  $k$ - однородным матроидом. При $k = |E|$, такой матроид называют дискретным. 
+\end{enumerate}
+
+\opr Пусть $M = (E;Y)$ - матроид. Пусть $ A \subset E$, так как по определению $\forall I_1,I_2$ - максимальный по включению независимых подмножеств в множестве $A$. $|I_1| = |I_2|$, то корректно определить ранг $A(\rho(A))$, который равен этой мощности (т.е. $\rho(A) = |I_1| = |I_2|$) $A \subset E $ независимо  $\Leftrightarrow |A| = \rho(A).$\par$ \rho(E) $ - ранг матриоида. Таким образом определена ранговая функция:\par
+$\tilde{\rho}:2^E \rightarrow N_0 : \forall A \subseteq E \;\;\; \tilde\rho(A) = \rho(A)$
+
+Вопрос: всякая ли функция $\tilde\rho$ является ранговой, то есть $\exists$ матроид $M$ такой, что $\tilde\rho:2^E \rightarrow N_0$ является ранговой функицей этого матроида.
+
+\thr Функция $\rho : 2^E \rightarrow N_0$, где $E$ - конечное множество (непустое), является ранговой фунцией матроида $(E;Y) \Leftrightarrow$
+\begin{enumerate}
+\item $\forall A \subseteq E \;\;\;  \rho(A) \leqslant (A)$
+\item Если $ A \subset B \subseteq E$, то $\rho(A) < \rho(B)$
+\item $\forall A,B \subseteq E$ выполняется:
+$\rho(A \cup B) + \rho(A \cap B) \leqslant \rho(A) + \rho(B)$
+\end{enumerate} 
+
+\note Для матричного матроида $M$ над матрицей $A$ имеем \\ $\rho(M) = rank(A)$. Таким образом матроид можно рассматривать как пару $(E;\rho)$, где $E$ конечное множество и $\rho:2^E \rightarrow N_0$ - функция удовлеторяющая условиям теоремы.
+
+\opr Пусть $M_1 = (E_1;Y_1)$ и $ M_2 = (E_2;Y_2)$ - два матроида. \\$\phi : E_1 \rightarrow E_2$ - биекция. $\forall X \leqslant E$ положим $\phi(X) = \{\phi(x) : x\in X\}$. \\Отображение $\phi$ называется изоморфизмом матроидов \\ $M_1,M_2 \Leftrightarrow ((x\in Y_1) \Leftrightarrow (\phi(x) \in Y_2))$. Таким образом при изоморфизме независимые множества переходят в независимые. \\
+
+\example $ \exists $ всего 4 неизоморфных матроида из двух элементов $E=\{1,2\}$
+\begin{enumerate}
+\item $Y = \{\varnothing\}$
+\item $Y = \{ \varnothing ; \{ 1 \} ; \{ 2 \} \}$
+\item $Y = \{ \varnothing ; \{ 1 \} ; \{ 2 \} ; \{ 1 ; 2 \} \}$
+\item $Y = \{ \varnothing ; \{ 1 \} \} $
+\end{enumerate}
+
+\note Матроид изомофный матричным, называется матричным.
+Пусть $M = (E;Y)$ - наследственная система подмножест и для каждого $e\in E$ задан вес $\omega(e) \geqslant 0$. 
+Требуется найти независимое подмножество с максимальным весом.\par
+Вес подмножества $A\subseteq E |\; \omega(A) = \sum\limits_{a\in A}(\omega(a))$ \\
+\newpage
+
+\begin{algorithm}
+\caption{Жадный алгоритм}
+\begin{algorithmic}
+ %\State начало:
+ \While{$E \neq 0$}
+ \State $e\in E \gets $ элемент с наибольшим весом
+ \State Удалим $e$ из $E$
+ \If {$I \cup \{ e \} $ - независимо} 
+ \State $I \gets I \cup \{ e \} $
+ \EndIf
+ \EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+\utv Пусть $M = (E;Y) $ наследственные системы подмножеств.\\ \par
+\quad Эквивалентно:
+\begin{enumerate}
+\item $M$ - матроид.
+\item При $\forall$ наборе весов на $E$ жадный алгоритм дает оптимальное решение.
+\item Если $I_p;I_{p+1} \in Y$, где $|I_p| = p$ и $|I_{p+1}| = p + 1$, то \par $\exists e\in I_{p+1}\ I_p | I_p \cup \{ e \} \in Y $.\\
+\end{enumerate}
+
+\example(жадных алгоритмов)\par
+ \begin{enumerate}
+ \item Алгоритм Дейкстры
+ \item Алгоритм Прима
+ \item Алгоритм Хаффмана
+ \end{enumerate}
