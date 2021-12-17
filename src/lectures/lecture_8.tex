@@ -3,8 +3,9 @@
 \opr Семейство $(x_1, \dots, x_v)$ подмножеств множества $\mathfrak{X} = \lbrace x_1, \dots, x_v\rbrace$
 называется симметричной сбалансированной неполной блок-схемой или $(v, k , \lambda)$ - конфигурацией, если:
 \begin{align*}
-	&0 < \lambda < k < v - 1 \text{ и } \forall \text{ } i, j  = \overline{1;v} \text{ } (\mathfrak{X}_1, \dots, \mathfrak{X}_v - \text{ блоки})\\
-	&|\mathfrak{X}_i \cap \mathfrak{X}_j| = 
+	1)\;&0 < \lambda < k < v - 1 \text{ и } \forall \text{ } i, j  = \overline{1;v} \text{ }
+	(\mathfrak{X}_1, \dots, \mathfrak{X}_v - \text{ блоки})\\
+	2)\;&|\mathfrak{X}_i \cap \mathfrak{X}_j| = 
 	\begin{cases}
 		k, i = j \\
 		\lambda, i \neq j
@@ -39,15 +40,15 @@ $\begin{cases}
 			\lambda, i \neq j
 		\end{cases}
 	\end{equation*}
-	\item $A\overline{j} = k\overline{j}$
+	\item $AJ = kJ$
 	\item $AA^T = \lambda \overline{j} + (k - \lambda)E$
 	\item $\det(AA^T) = (k + \lambda(v - 1))(k - \lambda)^{v - 1}$
 	\item $k(k - 1) = \lambda(v - 1)$
-	\item $\overline{j}A = k\overline{j}$
+	\item $JA = kJ$
 	\item $AA^T = A^TA$
 \end{enumerate}
 
-\prim $\overline{j}$ - матрица из всех единиц
+\prim $J$ - матрица из всех единиц
 
 \opr Дополнением $(v, k, \lambda)$ - конфигурации $( \mathfrak{X}_1, \dots, \mathfrak{X}_v)$
 называется семейство $(Y_1, \dots, Y_v)$ таких подмножеств множества $\mathfrak{X} = \lbrace x_1, \dots, x_v\rbrace$,
@@ -57,17 +58,17 @@ $\begin{cases}
 $(Y_1, \dots, Y_v)$ - $(v; v - k; v - 2k + \lambda)$ - конфигурация.
 
 Рассмотрим код:
-$k = \lbrace A_1, \dots, A_v,\tilde{A_1}, \dots, \tilde{A_v} \rbrace$, где $A_i$ строки матрицы инцидентности.
+$K = \lbrace A_1, \dots, A_v,\tilde{A_1}, \dots, \tilde{A_v} \rbrace$, где $A_i$ строки матрицы инцидентности.
 
 \utv
 \begin{align*}
-	& k - (v; d - 1; t) \text{, где } d - 1 \text{ обнаруживает ошибок, } t - \text{ не проявляет ошибок.}\\
+	& K - (v; d - 1; t) \text{ код, где } d - 1 \text{ обнаруживает ошибок, } t - \text{ не проявляет ошибок.}\\
 	& d = min\lbrace \rho(A_i, A_j), \rho(\tilde{A_i}, \tilde{A_j})\rbrace = min\lbrace (2(k - \lambda));v - 2(k - \lambda) \rbrace\\
 	& t \leq \frac{d - 1}{2}.
 \end{align*}
 
 \opr
-Квадратичная матрица $H_{n\times n}$ называется матрицей Адамара, если $h_{ij} \in \lbrace -1; 1 \rbrace$
+Квадратная матрица $H_{n\times n}$ называется матрицей Адамара, если $h_{ij} \in \lbrace -1; 1 \rbrace$
 и $HH^T = nE$.
 
 \prop
@@ -149,8 +150,26 @@ $\begin{cases}
 
 Рассуждения справедливы и в обратном порядке. А для каждой $(v, k, \lambda)$ конфигурации
 можно построить соответствующий код. $\blacksquare$
+\newpage
+Пусть $p(f(x) = <a, x>) = \frac{1}{2} + \frac{\triangle_a^f}{2^n}$
 
-Идея нахождения коэффициента $\omega_a^f$ для булевой функции $(A_a^f)$:
+\opr
+Упорядоченный набор чисел $\triangle_a^f$ называется статистической структурой функции $f$.
+
+\utv
+\begin{enumerate}
+	\item $\triangle_a^f = 2^{n - 1} - \vert\vert f(x) + <a, x> \vert\vert$
+	\item $\triangle_a^f = 2^{n - 1} W_a^f$
+	\item $\triangle_a^f = -\triangle_a^f$
+	\item $\triangle_a^{f_1 \oplus f_2} = \frac{1}{2^{n - 1}} \sum_{\beta}\triangle_{\beta}^{f_1}\triangle_{a \oplus \beta}^{f_2}$
+	\item Пусть $A$ - невырожденная над $GF(2),\text{ } \beta \in \Omega_2^n,\text{ } g(x) = f(Ax + \beta) \text{ }$\\
+	$\triangle_{aA^T}^g = (-1)^{<a,b>}\triangle_a^f, a \in \Omega_2^n$
+
+	\item Пусть $g(x) = f(x) \oplus <\gamma, x> \oplus d_0, $ где $\gamma \in \Omega_2^n, d_0 \in \Omega_2$.\\
+	Тогда $\triangle_{a\oplus\gamma}^g = (-1)^{d_0}\triangle_a^f$
+\end{enumerate}
+
+Идея нахождения коэффициента $\triangle_a^f$ для булевой функции $(A_a^f)$:
 \begin{enumerate}
 	\item $\overrightarrow{f} \rightarrow (-1)^{\overrightarrow{f}}$.
 	\item Преобразование $+-$ над половинками.
@@ -197,22 +216,3 @@ $$
 $$
 
 \prim Круглые скобки необходимы лишь для наглядной иллюстрации блоков, с которыми работаем, в работе их указывать не нужно.
-
-\newpage
-Пусть $p(f(x) = <a, x>) = \frac{1}{2} + \frac{\triangle_a^f}{2^n}$
-
-\opr
-Упорядоченный набор чисел $\triangle_a^f$ называется статистической структурой функции $f$.
-
-\utv
-\begin{enumerate}
-	\item $\triangle_a^f = 2^{n - 1} - \vert\vert f(x) + <a, x> \vert\vert$
-	\item $\triangle_a^f = 2^{n - 1} W_a^f$
-	\item $\triangle_a^f = -\triangle_a^f$
-	\item $\triangle_a^{f_1 \oplus f_2} = \frac{1}{2^{n - 1}} \sum_{\beta}\triangle_{\beta}^{f_1}\triangle_{a \oplus \beta}^{f_2}$
-	\item Пусть $A$ - невырожденная над $GF(2),\text{ } \beta \in \Omega_2^n,\text{ } g(x) = f(Ax + \beta) \text{ }$\\
-	$\triangle_{aA^T}^g = (-1)^{<a,b>}\triangle_a^f, a \in \Omega_2^n$
-
-	\item Пусть $g(x) = f(x) \oplus <\gamma, x> \oplus d_0, $ где $\gamma \in \Omega_2^n, d_0 \in \Omega_2$.\\
-	Тогда $\triangle_{a\oplus\gamma}^g = (-1)^{d_0}\triangle_a^f$
-\end{enumerate}
