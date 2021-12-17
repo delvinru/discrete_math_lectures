@@ -47,7 +47,8 @@ $$
 
 \opr Весом булевой функции $f$ называют величину $||f|| = |\{\vec{\alpha} \in \Omega^n \mid f(\vec{\alpha}) = 1\}|$. $N_f$ - носитель булевой функции.
 
-\opr Функция от $n-1$ переменной, определяемая равенством $\varphi(a_1; \dots; a_{n-1}) = f'(a_1; \dots; a_{i-1}; b; a_{i+1}; \dots; a_n)$, называется
+\opr Функция от $n-1$ переменной, определяемая равенством $\varphi(a_1; \dots; a_{n-1}) =$\\
+$f'(a_1; \dots; a_{i-1}; b; a_{i+1}; \dots; a_n)$, называется
 функцией полученной из $f'$ фиксацией $i$-ой переменной значением $b$.
 
 Обозначением $\varphi = f_i^b(x_1; \dots; x_n)$, аналогично фиксация $k$ переменных значениями $b_1,\dots, b_k : \varphi = f_{i_1; \dots; i_n}^{b_1; \dots; b_k}(x_1; \dots; x_n)$.
@@ -68,7 +69,7 @@ $$
     \item Других формул нет.
 \end{enumerate}
 
-Множество формул над $\K$ обозначается $\Phi(\K)$. При $m=0$ формула есть символ над $\K$, т.е. константа.
+Множество формул над $\K$ обозначается $[\K]$. При $m=0$ формула есть символ над $\K$, т.е. константа.
 
 \opr Число символов функций из $\K$, встречающихся в формуле $A$ назовем рангом формулы $A$. Обозначение: $r(A)$.
 
@@ -83,8 +84,8 @@ $$
 Каждой формуле при фиксированном допустимом наборе $(x_1; \dots; x_n)$ сопоставляется функция по следующему правилу:
 \begin{enumerate}
     \item Если $A$ есть $x_i$, то ей сопоставляется функция $f$, значения которой определяются равенством $f(a_1;\dots;a_n) = a_i, (a_1;\dots;a_n) \in \Omega^n$.
-    \item Если $A$ есть $f_j(A_1;\dots; A_m)$ и формулам $A_1, \dots, A_m$ сопоставлены функции $\varphi_1(x_1;\dots;x_n); \dots;\varphi_m(x_1;\dots;x_n)$, то формуле $A$ сопоставляется
-функция $f$, значения которой определяются равенством $f(a_1;\dots;a_n) = f_j(b_1;\dots;b_m)$, где $b_\zeta = \varphi_\zeta(a_1;\dots;a_n), \zeta \in \overline{1, m}$.
+    \item Если $A$ есть $f_j(A_1;\dots; A_m)$ и формулам $A_1, \dots, A_m$ сопоставлены функции \\ $\varphi_1(x_1;\dots;x_n); \dots;\varphi_m(x_1;\dots;x_n)$, то формуле $A$ сопоставляется
+функция $f$, значения которой определяются равенством $f(a_1;\dots;a_n) = f_j(b_1;\dots;b_m)$, где $b_\xi = \varphi_\xi (a_1;\dots;a_n), \xi \in \overline{1, m}$.
 \end{enumerate}
 
 \opr Формулы $A$ и $B$ равносильны, если они представляют одну и ту же функцию на любом допустимом наборе. Обозначение: $A\equiv B$.
@@ -105,7 +106,7 @@ $$
 
 \opr Система $\K$ называется полной, если (замыкание) $[\K] = F_2$.
 
-\example
+\examplei
 \begin{align*}
     \begin{rcases}
         \K_0 &= \{x_1 \cdot x_2; x_1 \vee x_2; \overline{x_1}\} \\
@@ -120,11 +121,11 @@ $$
 
 \examplei
 \begin{align*}
-    T_0 &= \{f(x_1; \dots; x_n) \mid f(0; \dots; 0) = 0\}\\
-    T_1 &= \{f(x_1; \dots; x_n) \mid f(1; \dots; 1) = 1\}\\
-    L   &= \{f(x_1; \dots; x_n) = a_1x_1 \oplus \ldots \oplus a_nx_n \mid a_i \in \Omega, i \in \overline{0, n}\} - \text{класс линейных функций}\\
-    S   &= \{f(x_1; \dots; x_n) \mid f(x_1; \dots; x_n) \equiv \overline{f(\overline{x_1}; \dots; \overline{x_n})} \} - \text{класс самодвойственных функций} \\
-    M   &= \{f(x_1; \dots; x_n) \mid \text{верно } \vec{\alpha} \preccurlyeq \vec{\beta}, \text{то} f(\vec{\alpha} \leq f(\vec{\beta})) \forall \vec{\alpha}, \vec{\beta} \in \Omega^n\} - \text{класс монотонных функций}
+    &T_0 = \{f(x_1; \dots; x_n) \mid f(0; \dots; 0) = 0\}\\
+    &T_1 = \{f(x_1; \dots; x_n) \mid f(1; \dots; 1) = 1\}\\
+    &L   = \{f(x_1; \dots; x_n) = a_1x_1 \oplus \ldots \oplus a_nx_n \mid a_i \in \Omega, i \in \overline{0, n}\} - \text{класс линейных функций}\\
+    &S   = \{f(x_1; \dots; x_n) \mid f(x_1; \dots; x_n) \equiv \overline{f(\overline{x_1}; \dots; \overline{x_n})} \} - \text{класс самодвойственных функций} \\
+    &M   = \{f(x_1; \dots; x_n) \mid \text{верно } \vec{\alpha} \preccurlyeq \vec{\beta}, \text{то} f(\vec{\alpha} \leq f(\vec{\beta})) \forall \vec{\alpha}, \vec{\beta} \in \Omega^n\} - \text{класс монотонных функций}
 \end{align*}
 
 \lem Булева функция $f(x_1; \dots; x_n)$ не является монотонной $\Leftrightarrow \exists \vec{\alpha}$ и $\vec{\beta}$ отличающиеся

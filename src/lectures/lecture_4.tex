@@ -6,7 +6,7 @@
 
 \utv $K_p(n)$ - векторное пространство над $K$ размерности $p^n$
 
-\thr Множеству всех различных гомоморфизмов $\varphi: (GF(p)^n,+) \longrightarrow (\mathbb{C},*)$ состоит из $p^n$ различных гомоморфизмов $\X_\alpha$; $\alpha = (\alpha_1,\dots, \alpha_n) \in GF(p)^n$, каждый из которых однозначно определяется своим действием на вектора стандартного базиса $e_j, j \in \overline{1, n}$
+\thr Множество всех различных гомоморфизмов $\varphi: (GF(p)^n,+) \longrightarrow (\mathbb{C},*)$ состоит из $p^n$ различных гомоморфизмов $\X_\alpha$; $\alpha = (\alpha_1,\dots, \alpha_n) \in GF(p)^n$, каждый из которых однозначно определяется своим действием на вектора стандартного базиса $e_j, j \in \overline{1, n}$
 следующим образом $\X_\alpha(e_j) = \exp(\frac{2\pi i}{p}\cdot \alpha_j).$
 
 \utv Для любых $\alpha,\beta \in GF(p)^n$ верно $\frac{1}{p^n}\sum_{\gamma \in GF(p)^n}^n \X_\alpha (\gamma) \overline {\X_\beta (\gamma )} = \delta_{\alpha,\beta}$, т.е.
@@ -96,7 +96,7 @@ $g_\alpha(1, \alpha') = (b \overline{x_1} + d x_1)g_{\alpha'}(x_2; \dots ;x_n)$.
 т.е. $A = \otimes \prod_{i = 1}^n B_i$, тогда базисная функция $g_\omega$, соотвествующая столбцу $A$ и занумерованная набором $\omega = (\omega_1, \dots, \omega_n)$ имеет вид
 $g_\omega(x_1; \dots; x_n) = \prod_{i=1}^n \overline{\omega_i}(a_ix_i + c_ix_i) + \omega_i(b_i\overline{x_i} + d_i\overline{x_i})$.
 
-\example
+\examplei
 \begin{align*}
     B = 
     \begin{pmatrix}
@@ -105,7 +105,6 @@ $g_\omega(x_1; \dots; x_n) = \prod_{i=1}^n \overline{\omega_i}(a_ix_i + c_ix_i) 
     \end{pmatrix}
     - \text{тождественное преобразование}.
 \end{align*}
-
 \begin{align*}
     B = 
     \begin{pmatrix}
@@ -114,7 +113,6 @@ $g_\omega(x_1; \dots; x_n) = \prod_{i=1}^n \overline{\omega_i}(a_ix_i + c_ix_i) 
     \end{pmatrix}
     - \text{многочлен Жегалкина}.
 \end{align*}
-
 \begin{align*}
     B = 
     \begin{pmatrix}
@@ -123,7 +121,6 @@ $g_\omega(x_1; \dots; x_n) = \prod_{i=1}^n \overline{\omega_i}(a_ix_i + c_ix_i) 
     \end{pmatrix}
     - \text{коэффициент Фурье}.
 \end{align*}
-
 \begin{align*}
     B = 
     \begin{pmatrix}
@@ -133,14 +130,14 @@ $g_\omega(x_1; \dots; x_n) = \prod_{i=1}^n \overline{\omega_i}(a_ix_i + c_ix_i) 
     - \text{вырожденная матрица}.
 \end{align*}
 
-\thr Пусть $B$ - невырожденная матрица размера $2 \times 2$  над $K$, $A = B^{[n]}$, где $[n]$ - тензорная степень. Тогда существует алгоритм вычисления $\widetilde{f}^\downarrow$ по вектору $f^\downarrow$, имеющий сложность $O(n \cdot 2^n)$ операций поля $K$\\
+\thr Пусть $B$ - невырожденная матрица размера $2 \times 2$  над $K$, $A = B^{[n]}$, где $[n]$ - тензорная степень.
+Тогда существует алгоритм вычисления $\widetilde{f}^\downarrow$ по вектору $f^\downarrow$, имеющий сложность $O(n \cdot 2^n)$ операций поля $K$.
 
 \proof Пусть $B^{-1} = $ $\begin{pmatrix}
         a & b\\
         c & d
     \end{pmatrix}$.
 Из свойств тензорного произведения матриц вытекает, что $A^{-1} = (B^{-1})^{[n]}= D_n \cdot D_{n-1} \cdot \ldots \cdot D_1$, где $D_i$ - матрица вида:
-
 \begin{align*}
     D_i = \left( E_2^{[n-i]} \otimes
     \begin{pmatrix}
@@ -158,7 +155,6 @@ $g_\omega(x_1; \dots; x_n) = \prod_{i=1}^n \overline{\omega_i}(a_ix_i + c_ix_i) 
 
 Покажем, что каждое из умножений $D_i$ на $f_{i-1}^\downarrow$ может быть выполнено за $O(2^n)$ операций поля $K$. Тогда общее количество операций, 
 необходимое для вычисления $\widetilde{f^\downarrow}$ по $f^\downarrow$ будет составлять $0(n2^n)$ операций.
-
 \begin{align*}
     D = \left( E_{2^{n-i}} \otimes
     \begin{pmatrix}
@@ -185,7 +181,7 @@ $\hatv{D}_i$ - матрица размера $2^i \times 2^i$ вида
 Пусть теперь $\mathfrak{X}^\downarrow$ произвольный вектор длины $2^n$ над полем $K$. Опишем алгоритм умножения $D_i$ на $\mathfrak{X}^\downarrow$.
 
 \begin{enumerate}
-    \item Разобьем $X^\downarrow$ на $2^{n-1}$ частей длины $2^i$, тогда
+    \item Разобьем $\mathfrak{X}^\downarrow$ на $2^{n-1}$ частей длины $2^i$, тогда
         \begin{align*}
             \mathfrak{X}^\downarrow =
             \begin{pmatrix}

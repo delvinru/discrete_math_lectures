@@ -17,25 +17,25 @@
 $|X_{j_1} \cup \dots \cup X_{j_k}|\geq k$. (*)
 \end{center}
 
-\textbf{Доказательство:}\\
+\proof
 
-\textbf{Необходимость:}\\
+\emph{Необходимость:}\\
 Пусть $\exists (x_1; \dots; x_n)$ тр. $(X_1; \dots; X_n)$. Тогда $\forall k \in \overline{1,n}$ и $\forall$ набора $1 \leq j_1 \leq \dots \leq j_k\leq n$ имеем $x_{j_1} \in X_{j_1}, \dots, x_{j_k} \in X_{j_k}$ и $x_{j_s} \neq x_{j_t}$ при $j_t \neq j_s \Rightarrow |X_{j_1} \cup \dots \cup X_{j_k}| \geq k = |{x_1; \dots; x_k}|$.
 
-\textbf{Достаточность:}\\
+\emph{Достаточность:}\\
 Индукция по $n$. Пусть $n=1$ , тогда
 $|X_1| \geq 1 \Rightarrow {x_1}$ тр $X_1$ .
 Предположение индукции: $\forall n' < n$ из условия (*) $\Rightarrow \exists$ трансверсали для $n'$ множеств. 
 
-Рассмотрим 2 случая:\\
+Рассмотрим 2 случая:
 
-\textbf{а)} Для всех $1 \leq k \leq n-1$ и $\forall j_1 < \dots < j_k \leq n$ верно $|X_{j_1} \cup \dots \cup X_{j_k}| \geq k+1$ (**)
+а) Для всех $1 \leq k \leq n-1$ и $\forall j_1 < \dots < j_k \leq n$ верно $|X_{j_1} \cup \dots \cup X_{j_k}| \geq k+1$ (**)
 При $k=1$ $|X_1| \geq 2 \Rightarrow \exists$ трансверсаль $x_1$ тр. $X$.
 
 Рассмотрим семейство $(X_2'; \dots; X_n')$, где $X_i'=X_i \textbackslash \{x_i\}, 2 \leq i \leq n$.
-Согласно (**) для этого семейства при $\forall 1 \leq k < n$ и $\forall 2 \leq j_1 < \dots < j_k \leq n$ имеем $|X_{j_1}' \cup \dots \cup X_{j_k}'| \geq k$ и по предположению индукции существует $(x_2; \dots; x_n)$ тр. $(X_2'; \dots; X_n')$, но тогда $(x_1, x_2, \dots, x_n)$ тр. $(X_1; \dots; X_n)$.\\
+Согласно (**) для этого семейства при $\forall 1 \leq k < n$ и $\forall 2 \leq j_1 < \dots < j_k \leq n$ имеем $|X_{j_1}' \cup \dots \cup X_{j_k}'| \geq k$ и по предположению индукции существует $(x_2; \dots; x_n)$ тр. $(X_2'; \dots; X_n')$, но тогда $(x_1, x_2, \dots, x_n)$ тр. $(X_1; \dots; X_n)$.
 
-\textbf{б)} $\exists k$ и такое сочетание $1 \leq j_1 < \dots < j_k \leq n$, что $|X_{j_1} \cup \dots \cup X_{j_k}|=k$.
+б) $\exists k$ и такое сочетание $1 \leq j_1 < \dots < j_k \leq n$, что $|X_{j_1} \cup \dots \cup X_{j_k}|=k$.
 
 Т.к. можно перенумеровать подмножества, то не ограничивая общности считаем $|X_1 \cup \dots \cup X_k|=k$. По предположению индукции $\exists$ трансверсаль $(x_1; \dots; x_k)$ тр. $(X_1; \dots; X_k)$, т.к. $k<n$ и $\{x_1;\dots;x_k\}=|X_1 \cup \dots \cup X_k|$.
 
@@ -43,9 +43,11 @@ $|X_1| \geq 1 \Rightarrow {x_1}$ тр $X_1$ .
 (Штрихи можно снять, т.к. $\{x_1; \dots; x_k\}$ и так содержится в $X_1 \cup \dots \cup X_k$).
 $\geq k+l-k=1$, т.к. верно условие (*) для нештрихованных множеств. Таким образом $\exists  (x_{k+1}; \dots; x_n)$ тр. $(X_{k+1}'; \dots; X_n') \Rightarrow \exists (x_1; \dots; x_n)$ тр. $(X_1; \dots; X_n)$.\\
 
-\example 1. Представители различных классов эквивалентности
-
-\example 2. Остовное дерево графа. Его ребра - трансверсали множества рёбер графа.\\
+\examplei
+\begin{enumerate}
+    \item Представители различных классов эквивалентности.
+    \item Остовное дерево графа. Его ребра - трансверсали множества рёбер графа.
+\end{enumerate}
 
 \opr Пусть $P=GF(q)$ - конечное поле из $q$ элементов, $q=p^d$, где $p \in \mathbb{P}$ (простое). Пусть $F(x)$ - реверсивный многочлен (т.е. $F(0) \neq 0 )$ над $P$. Найдутся $a \in P$ и $k \in \N : F(x)| x^k - a.$ Наименьшее $k$ с таким свойством назовём редуцированным периодом (Обозначение: $T_{red}(F)$). Элемент $a$ назовём мультипликатором многочлена $F(x)$. Обозначение $(Mult(F))$ - множество всех мультипликаторов.
 
@@ -54,13 +56,16 @@ $\geq k+l-k=1$, т.к. верно условие (*) для нештрихова
 \utv
 \begin{enumerate}
 \item $Mult(F) = <b>$;
-\item $t * |Mult(F)|=T_{red}(F)$;
-\item  Если $f$ - примитивный, то $t= \frac{q^m - 1}{q-1}$, где $m=deg(f(x)), Multi(F)=P^*, b=F(0)$.
+\item $t \cdot |Mult(F)|=T_{red}(F)$;
+\item  Если $f$ - примитивный, то $t= \frac{q^m - 1}{q-1}$, где $m=deg(f(x)), Mult(F)=P^*, b=F(0)$.
 \end{enumerate}
 
 Рассмотрим следующую модель ДСЧ (Датчик случайных чисел).\\
 
-\includegraphics[scale=0.35]{DSC}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[scale=0.35]{DSC}
+\end{figure}
 
 Пусть $F_1, \dots, F_k$ - многочлены попарно взаимопростых степеней $m_1, \dots m_k$.
 
